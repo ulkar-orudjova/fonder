@@ -1,0 +1,420 @@
+@use "../variables" as *;
+
+.work {
+  width: 100%;
+  padding-top: 162px;
+  padding-bottom: 90px;
+  .container {
+    .row {
+      flex-direction: column;
+      gap: 27px;
+      .work-top {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        .filters {
+          display: flex;
+          align-items: center;
+          gap: 18px;
+          .title {
+            font-size: 17px;
+            line-height: 23px;
+            letter-spacing: -0.8px;
+            text-transform: uppercase;
+            font-family: stroy;
+          }
+          .right-side {
+            position: relative;
+            .work-btn {
+              color: $grey;
+              font-size: 16px;
+              text-transform: uppercase;
+              font-family: stroy;
+              border: 1px solid $grey;
+              background-color: $pureWhite;
+              display: flex;
+              gap: 27px;
+              align-items: center;
+              cursor: pointer;
+            }
+            .all-category {
+              opacity: 1;
+              position: absolute;
+              left: 0;
+              top: calc(100% + 9px);
+              z-index: 500;
+              width: 450px;
+              max-width: 648px;
+              padding: 36px;
+              display: flex;
+              gap: 9px;
+              flex-wrap: wrap;
+              background-color: $white;
+              border: 1px solid #100f141a;
+              border-radius: 9px;
+              .category-btn {
+                background-color: $white;
+                color: $black;
+                border: 1px solid $black;
+                font-size: 16px;
+                padding: 9px 18px;
+                text-wrap: nowrap;
+                &.active {
+                  background-color: $black;
+                  color: $white;
+                }
+              }
+            }
+          }
+        }
+        .selected-category {
+          .selected-btn {
+            background-color: $gray;
+            color: $black;
+            border: 1px solid $gray;
+            font-size: 18px;
+            padding: 9px 18px;
+            text-wrap: nowrap;
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+      .work-bottom {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 126px;
+        .card {
+          display: flex;
+          flex-direction: column;
+          gap: 18px;
+          text-align: center;
+          &:hover {
+            .card-img {
+              img {
+                transform: scale(0.97);
+              }
+            }
+            .card-info {
+              .card-title {
+                text-decoration-line: underline;
+              }
+            }
+          }
+          .card-img {
+            img {
+              width: 100%;
+              border-radius: 32px;
+            }
+          }
+          .card-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            color: $black;
+            .card-title {
+              font-size: 23px;
+              line-height: 27px;
+              letter-spacing: -1.1px;
+            }
+            .card-text {
+              font-size: 17px;
+              line-height: 23px;
+              letter-spacing: -0.5px;
+              text-wrap: balance;
+              opacity: 0.6;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .work {
+    padding-top: 140px;
+    padding-bottom: 78px;
+    .container {
+      .row {
+        gap: 24px;
+        .work-top {
+          gap: 16px;
+          .filters {
+            gap: 16px;
+            .title {
+              font-size: 15px;
+              line-height: 14px;
+              letter-spacing: -0.7px;
+            }
+            .right-side {
+              .work-btn {
+                font-size: 14px;
+                gap: 23px;
+                padding: 9px 14px;
+              }
+              .all-category {
+                top: calc(100% + 8px);
+                width: 388px;
+                max-width: 558px;
+                padding: 31px;
+                display: flex;
+                gap: 9px;
+                border-radius: 8px;
+                .category-btn {
+                  font-size: 14px;
+                  padding: 8px 15px;
+                }
+              }
+            }
+          }
+          .selected-category {
+            .selected-btn {
+              font-size: 14px;
+              line-height: 14px;
+              letter-spacing: -0.4px;
+              padding: 9px 16px;
+            }
+          }
+        }
+        .work-bottom {
+          gap: 93px;
+          .card {
+            gap: 16px;
+            .card-img {
+              img {
+                border-radius: 27px;
+              }
+            }
+            .card-info {
+              gap: 4px;
+              .card-title {
+                font-size: 20px;
+                line-height: 23px;
+                letter-spacing: -1px;
+              }
+              .card-text {
+                font-size: 13px;
+                line-height: 20px;
+                letter-spacing: -0.54px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .work {
+    padding-top: 136px;
+    padding-bottom: 76px;
+    .container {
+      .row {
+        gap: 23px;
+        .work-top {
+          gap: 15px;
+          .filters {
+            gap: 15px;
+            .title {
+              font-size: 14px;
+              line-height: 19px;
+              letter-spacing: -0.7px;
+            }
+            .right-side {
+              .work-btn {
+                font-size: 14px;
+                gap: 19px;
+                //padding: 8px 15px;
+              }
+              .all-category {
+                width: 379px;
+                max-width: 545px;
+                padding: 31px;
+                gap: 8px;
+                border-radius: 8px;
+                .category-btn {
+                  gap: 8px;
+                  font-size: 14px;
+                  padding: 8px 15px;
+                }
+              }
+            }
+          }
+          .selected-category {
+            .selected-btn {
+              font-size: 15px;
+              padding: 9px 15px;
+            }
+          }
+        }
+        .work-bottom {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 46px;
+          .card {
+            gap: 15px;
+            .card-img {
+              img {
+                border-radius: 27px;
+              }
+            }
+            .card-info {
+              gap: 4px;
+              .card-title {
+                font-size: 19px;
+                line-height: 23px;
+                letter-spacing: -0.9px;
+              }
+              .card-text {
+                font-size: 14px;
+                line-height: 19px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .work {
+    padding-top: 102px;
+    padding-bottom: 73px;
+    .container {
+      .row {
+        gap: 22px;
+        .work-top {
+          .filters {
+            gap: 8px;
+            .title {
+              font-size: 12px;
+              line-height: 1;
+              letter-spacing: -0.5px;
+            }
+            .right-side {
+              .work-btn {
+                font-size: 12px;
+                gap: 22px;
+                padding: 7px 15px;
+              }
+              .all-category {
+                width: calc(100vw - 58px);
+                max-width: 526px;
+                padding: 15px;
+                gap: 7px;
+                border-radius: 7px;
+                .category-btn {
+                  gap: 7px;
+                  font-size: 11px;
+                  padding: 7px 15px;
+                }
+              }
+            }
+          }
+          .selected-category {
+            .selected-btn {
+              font-size: 12px;
+              padding: 7px 15px;
+            }
+          }
+        }
+        .work-bottom {
+          gap: 29px;
+          .card {
+            gap: 7px;
+            .card-img {
+              img {
+                border-radius: 19px;
+              }
+            }
+            .card-info {
+              .card-title {
+                font-size: 16px;
+                line-height: 1.25;
+                letter-spacing: -0.4px;
+              }
+              .card-text {
+                font-size: 13px;
+                line-height: 18px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .work {
+    padding-top: 112px;
+    padding-bottom: 80px;
+    .container {
+      .row {
+        gap: 24px;
+        .work-top {
+          .filters {
+            .title {
+              font-size: 12px;
+              letter-spacing: -0.6px;
+            }
+            .right-side {
+              .work-btn {
+                font-size: 12px;
+                gap: 24px;
+                padding: 8px 16px;
+              }
+              .all-category {
+                width: calc(100vw - 64px);
+                max-width: 576px;
+                padding: 16px;
+                gap: 8px;
+                border-radius: 8px;
+                .category-btn {
+                  gap: 8px;
+                  font-size: 12px;
+                  padding: 8px 16px;
+                }
+              }
+            }
+          }
+          .selected-category {
+            .selected-btn {
+              font-size: 12px;
+              padding: 8px 16px;
+            }
+          }
+        }
+        .work-bottom {
+          gap: 32px;
+          .card {
+            gap: 8px;
+            .card-img {
+              img {
+                border-radius: 20px;
+              }
+            }
+            .card-info {
+              gap: 4px;
+              .card-title {
+                font-size: 16px;
+                letter-spacing: -0.5px;
+              }
+              .card-text {
+                font-size: 14px;
+                line-height: 20px;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+                 line-clamp: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

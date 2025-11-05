@@ -1,0 +1,72 @@
+@use "../variables" as *;
+.outcomes {
+    width: 100%;
+    padding-top: 70px;
+    //padding-bottom: 30px;
+  .swiper {
+    max-width: 100%;
+    .swiper-wrapper {
+      transition-timing-function: linear !important;
+      display: flex;
+      max-width: 100%;
+      text-transform: uppercase;
+      padding-right: 50px;
+      //letter-spacing: -9px !important;
+      line-height: 1.05;
+      white-space: nowrap;
+      .swiper-slide {
+        width: auto !important;
+        display: inline-flex;
+        align-items: center;
+        gap: 61px;
+        
+        h2 {
+          font-family: stroy;
+          font-weight: 600;
+          font-size: 192px;
+          color: $black;
+        }
+        .square{
+            background-color: $black;
+            width: 30px;
+            height: 30px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .outcomes {
+    width: 100%;
+    padding-top: 50px;
+  .swiper {
+    max-width: 100%;
+    .swiper-wrapper {
+      transition-timing-function: linear !important;
+      display: flex;
+      max-width: 100%;
+      text-transform: uppercase;
+      //letter-spacing: -9px !important;
+      line-height: 1.05;
+      white-space: nowrap;
+      .swiper-slide {
+        width: auto !important;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 61px;
+        
+        h2 {
+          font-size: 79px;
+        }
+        .square{
+            width: 25px;
+            height: 25px;
+            
+        }
+      }
+    }
+  }
+}
+}

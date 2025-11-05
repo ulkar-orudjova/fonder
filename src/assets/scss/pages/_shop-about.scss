@@ -1,0 +1,223 @@
+@use "../variables" as *;
+
+.shop-about {
+  width: 100%;
+  background-color: $black;
+  color: $white;
+  padding-bottom: 90px;
+  padding-top: 126px;
+  overflow: hidden;
+  .container {
+    .row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 36px;
+      align-items: center;
+      .left-side {
+        img {
+          border-radius: 18px;
+        }
+      }
+      .right-side {
+        padding: 54px;
+        max-width: 756px;
+        display: flex;
+        flex-direction: column;
+        gap: 27px;
+        justify-self: center;
+        align-items: flex-start;
+        .title {
+          font-size: 45px;
+          line-height: 45px;
+          letter-spacing: -2.3px;
+        }
+        .right-side-bottom {
+          display: flex;
+          flex-direction: column;
+          gap: 45px;
+          align-items: flex-start;
+          .info {
+            opacity: 0.8;
+            font-size: 20px;
+            letter-spacing: -0.6px;
+            .text {
+              line-height: 1.4;
+            }
+          }
+          .btn {
+            a {
+              color: $white;
+              font-size: 23px;
+              line-height: 27px;
+              letter-spacing: -1.1px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .shop-about {
+    padding-bottom: 77px;
+    padding-top: 108px;
+    .container {
+      .row {
+        gap: 31px;
+        .left-side {
+          img {
+            border-radius: 16px;
+          }
+        }
+        .right-side {
+          padding: 47px;
+          max-width: 651px;
+          gap: 23px;
+          .title {
+            font-size: 38px;
+            line-height: 38px;
+            letter-spacing: -2px;
+          }
+          .right-side-bottom {
+            gap: 39px;
+            .info {
+              font-size: 18px;
+              letter-spacing: -0.5px;
+              .text {
+                line-height: 1.4;
+              }
+            }
+            .btn {
+              a {
+                font-size: 20px;
+                line-height: 23px;
+                letter-spacing: -1px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .shop-about {
+    padding-bottom: 76px;
+    padding-top: 106px;
+    .container {
+      .row {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 30px;
+        .left-side {
+          img {
+            border-radius: 15px;
+          }
+        }
+        .right-side {
+          padding: 30px;
+          max-width: 636px;
+          gap: 23px;
+          justify-self:flex-start;
+          .title {
+            font-size: 38px;
+            line-height: 38px;
+            letter-spacing: -1.9px;
+          }
+          .right-side-bottom {
+            gap: 38px;
+            .info {
+              font-size: 17px;
+              letter-spacing: -0.5px;
+            }
+            .btn {
+              a {
+                font-size: 19px;
+                line-height: 23px;
+                letter-spacing: -0.9px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .shop-about {
+    padding-bottom: 73px;
+    padding-top: 88px;
+    .container {
+      .row {
+        gap: 29px;
+        .left-side {
+          img {
+            border-radius: 15px;
+          }
+        }
+        .right-side {
+          padding: 22px;
+          max-width: 613px;
+          gap: 22px;
+          .title {
+            font-size: 36px;
+            line-height: 36px;
+            letter-spacing: -1.8px;
+          }
+          .right-side-bottom {
+            gap: 36px;
+            .btn {
+              a {
+                font-size: 15px;
+                line-height: 22px;
+                letter-spacing: -0.4px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .shop-about {
+    padding-bottom: 80px;
+    padding-top: 96px;
+    .container {
+      .row {
+        gap: 32px;
+        .left-side {
+          img {
+            border-radius: 16px;
+          }
+        }
+        .right-side {
+          padding: 24px;
+          max-width: 672px;
+          gap: 24px;
+          .title {
+            font-size: 40px;
+            line-height: 40px;
+            letter-spacing: -2px;
+          }
+          .right-side-bottom {
+            gap: 40px;
+            .info {
+              font-size: 18px;
+            }
+            .btn {
+              a {
+                font-size: 16px;
+                line-height: 24px;
+                letter-spacing: -0.5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

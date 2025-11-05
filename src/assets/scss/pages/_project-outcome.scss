@@ -1,0 +1,322 @@
+@use "../variables" as *;
+
+.project-outcome {
+  width: 100%;
+  padding-bottom: 93px;
+  .container {
+    .row {
+      flex-direction: column;
+      gap: 90px;
+      .outcome {
+        position: relative;
+        display: grid;
+        color: $black;
+        padding-top: 40px;
+        .dashed-svg {
+          position: absolute;
+          width: 100%;
+          top: 0;
+        }
+        .statistics {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          .title {
+            font-size: 99px;
+            font-weight: 500;
+            line-height: 1.05;
+            font-family: stroy;
+            letter-spacing: -5px !important;
+          }
+          .sub-title {
+            font-size: 17px;
+            text-transform: uppercase;
+            letter-spacing: -0.7px !important;
+            opacity: 0.8;
+            font-family: stroy;
+            line-height: 22px;
+            font-weight: 400;
+          }
+        }
+        .text {
+          font-size: 24px;
+          line-height: 27px;
+          letter-spacing: -1.1px;
+          font-weight: 500;
+        }
+        .info {
+          display: flex;
+          flex-direction: column;
+          gap: 18px;
+          .person-info {
+            display: flex;
+            flex-direction: column;
+
+            .person-name {
+              font-size: 20px;
+              text-transform: uppercase;
+              font-weight: 500;
+              font-family: stroy;
+              line-height: 27px;
+              letter-spacing: -1px;
+            }
+            .position {
+              font-size: 16px;
+              line-height: 22px;
+              letter-spacing: -0.4px;
+              opacity: 0.4;
+            }
+          }
+          .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            .tag {
+              font-size: 16px;
+              opacity: 0.4;
+              line-height: 22.5px;
+              letter-spacing: -0.5px;
+              padding: 5px 9px;
+              border: 1px solid;
+              border-radius: 9999px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .project-outcome {
+    .container {
+      .row {
+        flex-direction: column;
+        gap: 90px;
+        .outcome {
+          position: relative;
+          display: grid;
+          grid-template-columns: 1fr 4fr 2fr;
+          gap: 72px;
+          color: $black;
+          padding-top: 40px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .project-outcome {
+    .container {
+      .row {
+        flex-direction: column;
+        gap: 77px;
+        .outcome {
+          position: relative;
+          display: grid;
+          //grid-template-columns: 1fr 4fr 2fr;
+          gap: 62px;
+          .statistics {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            .title {
+              font-size: 86px;
+            }
+            .sub-title {
+              font-size: 15px;
+            }
+          }
+          .text {
+            font-size: 20px;
+            line-height: 23px;
+            letter-spacing: -0.9px;
+          }
+          .info {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            .person-info {
+              .person-name {
+                font-size: 18px;
+                line-height: 23px;
+                letter-spacing: -0.8px;
+              }
+              .position {
+                font-size: 15px;
+              }
+            }
+            .tags {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 8px;
+              .tag {
+                font-size: 14px;
+                line-height: 22.5px;
+                letter-spacing: -0.5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .project-outcome {
+    //padding: 20px 0;
+    .container {
+      .row {
+        flex-direction: column;
+        gap: 75px;
+        .outcome {
+          display: grid;
+          gap: 30px;
+          .statistics {
+            display: flex;
+            gap: 4px;
+            .title {
+              font-size: 60px;
+            }
+            .sub-title {
+              font-size: 15px;
+              letter-spacing: -0.6px !important;
+              line-height: 18px;
+            }
+          }
+          .text {
+            font-size: 20px;
+            line-height: 27px;
+            letter-spacing: -1.1px;
+            font-weight: 500;
+          }
+          .info {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            .person-info {
+              display: flex;
+              flex-direction: column;
+
+              .person-name {
+                font-size: 20px;
+                text-transform: uppercase;
+                font-weight: 500;
+                font-family: stroy;
+                line-height: 27px;
+                letter-spacing: -1px;
+              }
+              .position {
+                font-size: 16px;
+                line-height: 22px;
+                letter-spacing: -0.4px;
+                opacity: 0.4;
+              }
+            }
+            .tags {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 9px;
+              .tag {
+                font-size: 16px;
+                opacity: 0.4;
+                line-height: 22.5px;
+                letter-spacing: -0.5px;
+                padding: 5px 9px;
+                border: 1px solid;
+                border-radius: 9999px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .project-outcome {
+    .container {
+      .row {
+        flex-direction: column;
+        gap: 72px;
+        .outcome {
+          display: grid;
+          gap: 29px;
+          .statistics {
+            .title {
+              font-size: 58px;
+            }
+          }
+          .info {
+            display: flex;
+            gap: 15px;
+            .person-info {
+              .person-name {
+                font-size: 18px;
+              }
+              .position {
+                font-size: 15px;
+              }
+            }
+            .tags {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 8px;
+              .tag {
+                font-size: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .project-outcome {
+    .container {
+      .row {
+        flex-direction: column;
+        gap: 72px;
+        .outcome {
+          display: grid;
+          gap: 32px;
+          .statistics {
+            .title {
+              font-size: 63px;
+            }
+          }
+          .text {
+            font-size: 20px;
+            line-height: 23px;
+            letter-spacing: -0.9px;
+          }
+          .info {
+            display: flex;
+            gap: 16px;
+            .person-info {
+              .person-name {
+                font-size: 18px;
+              }
+              .position {
+                font-size: 15px;
+              }
+            }
+            .tags {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 8px;
+              .tag {
+                font-size: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

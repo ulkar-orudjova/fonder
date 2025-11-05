@@ -1,0 +1,53 @@
+@use "../variables" as *;
+
+.btn {
+  display: inline-flex;
+  font-size: 20px;
+  color: $pureWhite;
+  background-color: $orange;
+  border: 1px solid $orange;
+  border-radius: 9999px;
+  padding: 12px 32px;
+  cursor: pointer;
+  white-space: nowrap;
+  &:hover {
+    background-color: $black;
+    border: 1px solid $black;
+  }
+  &.blue {
+    background-color: $blue;
+    border: 1px solid $blue;
+    &:hover {
+      background-color: $black;
+      border: 1px solid $black;
+    }
+  }
+  &.pink {
+    background-color: $pink;
+    border: 1px solid $pink;
+    color: $orange;
+    &:hover {
+      background-color: $orange;
+      border: 1px solid $orange;
+      color: $pureWhite;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .btn {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .btn {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    font-size: 16px;
+  }
+}

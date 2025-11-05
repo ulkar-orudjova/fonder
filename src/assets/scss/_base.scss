@@ -1,0 +1,76 @@
+@use "../scss/variables" as *;
+
+@font-face {
+  font-family: "Marfa";
+  src: url(../fonts/132a3c73002d795f-s.p.woff2);
+}
+
+@font-face {
+  font-family: "Stroy";
+  src: url(../fonts/aabfdd77d4dda7f6-s.p.woff2);
+}
+
+@font-face {
+  font-family: "Marfa";
+  src: url(../fonts/e57b2665b6721274-s.p.woff2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: marfa;
+  transition: 0.3s all ease;
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: 93%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.row {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dashed {
+  width: 100%;
+  background-color:$bgColorDashed;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  .arrow-right {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  gap: 126px;
+}
+
+@media (max-width: 768px) {
+  .btn {
+  .arrow-right {
+    width: 14px;
+    height: 14px;
+  }
+}
+}

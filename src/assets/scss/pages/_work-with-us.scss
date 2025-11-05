@@ -1,0 +1,130 @@
+@use "../variables" as *;
+
+.work-with-us {
+  width: 100%;
+  .container {
+    .row {
+      flex-direction: column;
+      gap: 30px;
+      letter-spacing: -0.8px !important;
+      .headline {
+        color: $black;
+        opacity: 0.6;
+        font-size: 20px;
+        text-transform: uppercase;
+        font-family: stroy;
+      }
+      .title {
+        font-size: 49px;
+        max-width: 1051px;
+        line-height: 1;
+      }
+      .work-with-us-btn {
+        margin-top: 40px;
+        .btn {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          color: $orange;
+          .arrow-right {
+            width: 18px;
+            height: 18px;
+          }
+          &:hover {
+            color: $pureWhite !important;
+          }
+        }
+      }
+    }
+  }
+  .mySwiper {
+    margin-top: 60px;
+    width: 100%;
+    overflow: hidden;
+
+    .swiper-wrapper {
+      align-items: center;
+      transition-timing-function: linear !important;
+    }
+    .swiper-slide {
+      width: auto !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .slide-img {
+      width: 162px;
+      height: auto;
+      object-fit: cover;
+      margin-right: 100px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .work-with-us {
+    .container {
+      .row {
+        .title {
+          font-size: 47px;
+        }
+        .btn {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .work-with-us {
+    .container {
+      .row {
+        .headline {
+          font-size: 17px;
+        }
+        .title {
+          font-size: 44px;
+        }
+        .work-with-us-btn {
+          .btn {
+            font-size: 18px;
+            .arrow-right {
+              width: 16px;
+              height: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .work-with-us {
+    .container {
+      .row {
+        gap: 20px;
+        .headline {
+          font-size: 14px;
+        }
+        .title {
+          font-size: 36px;
+          line-height: 36px;
+          letter-spacing: -1.8px;
+          font-weight: 500;
+
+        }
+        .work-with-us-btn {
+          .btn {
+            font-size: 15px;
+            .arrow-right {
+              width: 14px;
+              height: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

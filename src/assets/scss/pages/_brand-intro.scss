@@ -1,0 +1,108 @@
+@use "../variables" as *;
+
+.brand-intro {
+  width: 100%;
+  //padding: 126px 0;
+  .container {
+    .row {
+      flex-direction: column;
+      gap: 30px;
+      letter-spacing: -0.8px !important;
+      .headline {
+        color: $black;
+        opacity: 0.6;
+        font-size: 20px;
+        text-transform: uppercase;
+        font-family: stroy;
+      }
+      .title {
+        font-size: 49px;
+        max-width: 1051px;
+        line-height: 1;
+      }
+      .brand-intro-btn {
+        margin-top: 40px;
+        .btn {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          .arrow-right {
+            width: 18px;
+            height: 18px;
+            color: $pureWhite;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .brand-intro {
+    width: 100%;
+    //padding: 60px 0;
+    .container {
+      .row {
+        .title {
+          font-size: 47px;
+        }
+        .btn {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .brand-intro {
+    //padding: 50px 0;
+    .container {
+      .row {
+        .headline {
+          font-size: 17px;
+        }
+        .title {
+          font-size: 44px;
+        }
+       .brand-intro-btn {
+          .btn {
+            font-size: 18px;
+            .arrow-right {
+              width: 16px;
+              height: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .brand-intro {
+    //padding: 40px 0;
+    .container {
+      .row {
+        gap: 20px;
+        .headline {
+          font-size: 14px;
+        }
+        .title {
+          font-size: 24px;
+          line-height: 30px;
+          font-weight: 500;
+        }
+        .brand-intro-btn {
+          .btn {
+            font-size: 15px;
+            .arrow-right {
+              width: 14px;
+              height: 11px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

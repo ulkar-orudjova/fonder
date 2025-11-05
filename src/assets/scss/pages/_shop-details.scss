@@ -1,0 +1,13 @@
+@use "../variables" as *;
+
+.shop-details {
+  width: 100%;
+  padding-top: 162px;
+  .container {
+    .row {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+    }
+  }
+}

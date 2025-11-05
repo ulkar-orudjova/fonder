@@ -1,0 +1,139 @@
+@use "../variables" as *;
+.shop-hero {
+  width: 100%;
+  padding-top: 162px;
+  padding-bottom: 126px;
+  background-color: $black;
+  color: $pureWhite;
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 1008px;
+    gap: 27px;
+    .row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 9px;
+
+      .title {
+        font-size: 91px;
+        text-transform: uppercase;
+        letter-spacing: -4.5px !important;
+        line-height: 1.05;
+        font-family: stroy;
+      }
+      .sub-title {
+        font-size: 19px;
+        opacity: 0.6;
+        line-height: 27px;
+        letter-spacing: -0.5px;
+      }
+    }
+    .shop-hero-btn {
+      background-color: $white;
+      color: $black;
+      width: 72px;
+      height: 72px;
+      padding: 27px;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .shop-hero {
+    padding-top: 140px;
+    padding-bottom: 109px;
+    .container {
+      max-width: 868px;
+      gap: 23px;
+      .row {
+        gap: 8px;
+        .title {
+          font-size: 78px;
+          letter-spacing: -3.9px !important;
+        }
+        .sub-title {
+          font-size: 17px;
+          opacity: 0.6;
+          line-height: 23px;
+          letter-spacing: -0.5px;
+        }
+      }
+      .shop-hero-btn {
+        width: 62px;
+        height: 62px;
+        padding: 24px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .shop-hero {
+    padding-top: 137px;
+    padding-bottom: 106px;
+    .container {
+      max-width: 848px;
+      gap: 23px;
+      .row {
+        gap: 8px;
+        .title {
+          font-size: 76px;
+          letter-spacing: -3.7px !important;
+        }
+        .sub-title {
+          font-size: 17px;
+          line-height: 23px;
+          letter-spacing: -0.5px;
+        }
+      }
+      .shop-hero-btn {
+        width: 61px;
+        height: 61px;
+        padding: 23px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .shop-hero {
+    padding-top: 122px;
+    padding-bottom: 80px;
+    .container {
+      max-width: 896px;
+      gap: 24px;
+      .row {
+        .title {
+          font-size: 48px;
+          letter-spacing: -2.4px !important;
+        }
+        .sub-title {
+          font-size: 16px;
+          line-height: 24px;
+          letter-spacing: -0.5px;
+        }
+      }
+      .shop-hero-btn {
+        width: 64px;
+        height: 64px;
+        padding: 24px;
+      }
+    }
+  }
+}
+
