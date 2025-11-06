@@ -3,11 +3,406 @@
 .shop-details {
   width: 100%;
   padding-top: 162px;
+  padding-bottom: 100px;
+  position: relative;
   .container {
     .row {
       position: relative;
       display: grid;
       grid-template-columns: 1fr 2fr;
+      align-items: flex-start;
+      max-width: 2160px;
+      .left-side {
+        display: flex;
+        flex-direction: column;
+        gap: 45px;
+        padding-left: 54px;
+        padding-right: 54px;
+        position: sticky;
+        top: 108px;
+        max-width: 576px;
+
+        .headline {
+          text-transform: uppercase;
+          font-size: 18px;
+          line-height: 23px;
+          letter-spacing: -0.8px;
+          color: $black;
+          .list {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            .item {
+              a {
+                font-family: stroy;
+                color: $black;
+                opacity: 0.6;
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+              span {
+                font-family: stroy;
+                color: $black;
+                opacity: 0.6;
+              }
+            }
+          }
+        }
+        .info {
+          display: flex;
+          flex-direction: column;
+          gap: 18px;
+          .title {
+            font-size: 72px;
+            letter-spacing: -3.6px;
+            line-height: 1.05;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-family: stroy;
+          }
+          .price {
+            font-size: 21px;
+            line-height: 27px;
+            letter-spacing: -1px;
+            font-family: stroy;
+            text-transform: uppercase;
+          }
+          .text {
+            font-size: 18px;
+            color: $black;
+            //font-weight: 600;
+          }
+          .timeline {
+            display: flex;
+            gap: 9px;
+            align-items: center;
+            color: $black;
+            opacity: 0.8;
+            .timeline-svg {
+              width: 18px;
+            }
+            .time {
+              font-size: 18px;
+              line-height: 23px;
+              letter-spacing: -0.8px;
+              text-transform: uppercase;
+              font-family: stroy;
+              margin-bottom: -5px;
+            }
+          }
+        }
+        .add-btn {
+          width: 100%;
+          font-size: 22px;
+        }
+        .advantages {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 18px;
+          .advantage {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            font-size: 16px;
+            line-height: 23px;
+            letter-spacing: -0.5px;
+            gap: 9px;
+            img {
+              width: 45px;
+              height: 45px;
+            }
+          }
+        }
+      }
+      .right-side {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        overflow: scroll;
+        padding-left: 54px;
+        padding-right: 54px;
+        scrollbar-width: none;
+        order: 9999;
+        img {
+          border-radius: 14px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .shop-details {
+    padding-top: 140px;
+    .container {
+      .row {
+        max-width: 1860px;
+        .left-side {
+          gap: 39px;
+          padding-left: 0px;
+          padding-right: 30px;
+          position: sticky;
+          top: 93px;
+          max-width: 496px;
+          .headline {
+            font-size: 15px;
+            line-height: 19px;
+            letter-spacing: -0.7px;
+            .list {
+              gap: 8px;
+            }
+          }
+          .info {
+            gap: 16px;
+            .title {
+              font-size: 62px;
+              letter-spacing: -3px;
+            }
+            .price {
+              font-size: 18px;
+              line-height: 23px;
+              letter-spacing: -0.9px;
+            }
+            .text {
+              font-size: 16px;
+              line-height: 1.5;
+            }
+            .timeline {
+              gap: 8px;
+              .timeline-svg {
+                width: 16px;
+              }
+              .time {
+                font-size: 15px;
+                line-height: 19px;
+                letter-spacing: -0.7px;
+                margin-bottom: -4px;
+              }
+            }
+          }
+          .add-btn {
+            font-size: 19px;
+          }
+          .advantages {
+            gap: 16px;
+            .advantage {
+              font-size: 14px;
+              line-height: 19px;
+              letter-spacing: -0.4px;
+              gap: 8px;
+              img {
+                width: 39px;
+                height: 39px;
+              }
+            }
+          }
+        }
+        .right-side {
+          gap: 16px;
+          padding-left: 30px;
+          padding-right: 0px;
+          img {
+            border-radius: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .shop-details {
+    padding-top: 136px;
+    .container {
+      .row {
+        grid-template-columns: 1fr;
+        align-items: flex-start;
+        max-width: 1815px;
+        gap: 38px;
+        .left-side {
+          gap: 38px;
+          padding-left: 30px;
+          padding-right: 30px;
+          position: sticky;
+          top: 108px;
+          max-width: 100%;
+          .headline {
+            font-size: 15px;
+            line-height: 19px;
+            letter-spacing: -0.7px;
+            .list {
+              gap: 9px;
+            }
+          }
+          .info {
+            gap: 15px;
+            .title {
+              font-size: 61px;
+              letter-spacing: -3px;
+            }
+            .price {
+              font-size: 18px;
+              line-height: 23px;
+              letter-spacing: -0.8px;
+            }
+            .text {
+              font-size: 15px;
+              line-height: 1.7;
+            }
+            .timeline {
+              gap: 8px;
+              .timeline-svg {
+                width: 15px;
+              }
+              .time {
+                font-size: 14px;
+                line-height: 19px;
+                letter-spacing: -0.7px;
+                margin-bottom: -4px;
+              }
+            }
+          }
+          .advantages {
+            gap: 15px;
+            .advantage {
+              font-size: 14px;
+              line-height: 19px;
+              letter-spacing: -0.4px;
+              gap: 8px;
+            }
+          }
+        }
+        .right-side {
+          flex-direction: row;
+          padding-left: 30px;
+          padding-right: 30px;
+          order: -9999;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+   .shop-details {
+    padding-top: 103px;
+    .container {
+      .row {
+        max-width: 1752px;
+        gap: 37px;
+        .left-side {
+          gap: 37px;
+          padding-left: 0px;
+          padding-right: 0px;
+          .headline {
+            font-size: 14px;
+            line-height: 18px;
+            letter-spacing: -0.6px;
+            .list {
+              gap: 8px;
+            }
+          }
+          .info {
+            gap: 16px;
+            .title {
+              font-size: 57px;
+              letter-spacing: -2.9px;
+            }
+            .price {
+              font-size: 17px;
+              line-height: 22px;
+            }
+            .text {
+              font-size: 15px;
+              line-height: 1.5;
+            }
+            .timeline {
+              gap: 7px;
+              .time {
+                font-size: 14px;
+                line-height: 18px;
+                letter-spacing: -0.6px;
+              }
+            }
+          }
+          .add-btn{
+            font-size: 16px;
+          }
+        }
+        .right-side {
+          gap: 15px;
+          padding-left: 0px;
+          padding-right: 0px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+   .shop-details {
+    padding-top: 112px;
+    .container {
+      .row {
+        max-width: 1919px;
+        gap: 37px;
+        .left-side {
+          gap: 40px;
+          //padding-left: 16px;
+          //padding-right: 16px;
+          .headline {
+            font-size: 15px;
+            line-height: 20px;
+            letter-spacing: -0.7px;
+            .list {
+              gap: 9px;
+            }
+          }
+          .info {
+            .title {
+              font-size: 64px;
+              letter-spacing: -3.1px;
+            }
+            .price {
+              font-size: 19px;
+              line-height: 24px;
+            }
+            .text {
+              font-size: 16px;
+            }
+            .timeline {
+              gap: 8px;
+              .timeline-svg{
+                width: 17px;
+              }
+              .time {
+                font-size: 15px;
+                line-height: 20px;
+                letter-spacing: -0.7px;
+              }
+            }
+          }
+          .advantages {
+            gap: 16px;
+            .advantage {    
+              line-height: 20px;
+              gap: 8px;
+               img {
+                width: 40px;
+                height: 40px;
+              }
+            }
+          }
+        }
+        .right-side {
+          gap: 16px;
+          padding-left: 0px;
+          padding-right: 0px;
+         
+        }
+      }
     }
   }
 }

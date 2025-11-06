@@ -1,5 +1,6 @@
 import CustomButton from "../../../components/CustomButton";
 import ArrowRight from "../../../assets/images/icons/arrow-right.svg?react";
+import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
@@ -7,7 +8,14 @@ import "swiper/css";
 // import required modules
 import { Autoplay } from "swiper/modules";
 
+
 const NotFound = () => {
+
+  const navigate = useNavigate();
+
+  const goToHome = () => {
+    navigate("/");
+  }
   return (
     <section className="not-found">
      
@@ -42,7 +50,7 @@ const NotFound = () => {
           Fiddlesticks... The page you seek no longer exists or never did. Let’s
           get you back on track.
         </p>
-        <CustomButton onClick={() => {}} text="Take me home">
+        <CustomButton onClick={goToHome} text="Take me home">
           <ArrowRight className="arrow-right" />
         </CustomButton>
       

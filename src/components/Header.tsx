@@ -6,28 +6,28 @@ const Header = () => {
     <header className="header">
       <div className="container">
         <div className="row">
-          <div className="leftSide">
+          <div className="left-side">
             <div className="logo">
               <Link to={"/"}>
                <Logo/>
               </Link>
             </div>
-            <nav className="navBar">
-              <ul className="navList">
-                <li className="navItem">
+            <nav className="nav-bar">
+              <ul className="nav-list">
+                <li className="nav-item">
                   <NavLink to={"/shop"}>Solutions</NavLink>
                 </li>
-                <li className="navItem">
+                <li className="nav-item">
                   <NavLink to={"/work"}>Work</NavLink>
                 </li>
               </ul>
             </nav>
-            <div className="letsWork">
-              <Link to={"/"}>Let's Work</Link>
+            <div className="lets-work">
+              <Link to={""}>Let's Work</Link>
             </div>
           </div>
-          <div className="rightSide">
-            <button className="cartBtn">
+          <div className="right-side">
+            <button className="cart-btn">
               <span className="cart">🛒</span>
             </button>
           </div>

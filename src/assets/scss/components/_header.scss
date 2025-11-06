@@ -11,7 +11,7 @@
       justify-content: center;
       align-items: center;
       gap: 10px;
-      .leftSide {
+      .left-side {
         display: flex;
         justify-content: space-between;
         gap: 60px;
@@ -27,13 +27,13 @@
             color: $pureWhite;
           }
         }
-        .navBar {
+        .nav-bar {
           display: flex;
-          .navList {
+          .nav-list {
             display: flex;
             gap: 30px;
             align-items: center;
-            .navItem {
+            .nav-item {
               a {
                 color: $lightGray;
                 font-size: 19px;
@@ -44,7 +44,7 @@
             }
           }
         }
-        .letsWork {
+        .lets-work {
           display: flex;
           align-items: center;
 
@@ -59,12 +59,12 @@
           }
         }
       }
-      .rightSide {
+      .right-side {
         display: flex;
         align-items: center;
         justify-content: center;
         height: 100%;
-        .cartBtn {
+        .cart-btn {
           display: flex;
           align-items: center;
           justify-content: center;
