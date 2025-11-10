@@ -1,13 +1,45 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import CustomButton from "../../../components/CustomButton";
 import Timeline from "../../../assets/images/icons/timeline.svg?react";
 import Dashed from "../../../assets/images/icons/dashed.svg?react";
-import detailImg1 from "../../../assets/images/detail-img-1.webp";
 import detailImg2 from "../../../assets/images/detail-img-1_2.webp";
 import detailImg3 from "../../../assets/images/detail-img-1_3.webp";
 import detailImg4 from "../../../assets/images/detail-img-1_4.webp";
+import { useEffect, useState } from "react";
+import { ShopService } from "../Service/ShopService";
+import Loading from "../../../components/Loading";
+import type { IProduct } from "../Models/ShopModel";
 
 const ShopDetails = () => {
+  const {id} = useParams();
+  console.log(id)
+
+  const [loading, setLoading] = useState(false);
+const [product, setProduct] = useState<IProduct>();
+
+const getDetails = async () =>{
+  setLoading(true)
+  try{
+    if(id){
+       const res = await ShopService.productDetails(id);
+         setProduct(res)
+    }
+  } catch(error){
+    console.log(error)
+  }finally{
+    setLoading(false)
+  }
+};
+
+useEffect(() =>{
+    getDetails();
+}, []);
+
+if(loading){
+  return <Loading/>
+}
+
+
   return (
     <section className="shop-details">
       <div className="container">
@@ -22,19 +54,16 @@ const ShopDetails = () => {
                   <Link to={"/shop"}>Solutions</Link>
                 </li>
                 <li className="item">
-                  <span>Brand Experience Audit</span>
+                  <span>{product?.name}</span>
                 </li>
               </ul>
             </div>
             <div className="info">
-              <h1 className="title">Brand Experience Audit</h1>
-              <p className="price">$2,000</p>
+              <h1 className="title">{product?.name}</h1>
+              <p className="price">${product?.price},000</p>
               <div className="stars"></div>
               <p className="text">
-                We dive through every part of your customer journey — from first
-                impression to post-purchase — to gauge your brand perception and
-                uncover opportunities to convert more customers, build brand
-                loyalty, and drive lasting growth.
+                {product?.details}
               </p>
               <div className="underline">
                 <Dashed />
@@ -79,7 +108,7 @@ const ShopDetails = () => {
             </div>
           </div>
           <div className="right-side">
-            <img src={detailImg1} alt="" />
+            <img className="detail-img" src={product?.productImage} alt={product?.name} />
             <img src={detailImg2} alt="" />
             <img src={detailImg3} alt="" />
             <img src={detailImg4} alt="" />
