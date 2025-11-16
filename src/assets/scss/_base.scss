@@ -60,6 +60,10 @@ img {
   }
 }
 
+.hidden{
+  display: none!important;
+}
+
 main{
   display: flex;
   flex-direction: column;

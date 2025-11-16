@@ -132,7 +132,9 @@
           object-fit: cover;
           &.detail-img {
             width: 100%;
-            //object-position: center 30%;
+           // object-fit: scale-down;
+           object-fit: contain;
+            background-color: $lightColor;
           }
         }
       }

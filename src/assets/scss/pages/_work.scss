@@ -46,12 +46,15 @@
               width: 450px;
               max-width: 648px;
               padding: 36px;
-              display: flex;
+              display: none;
               gap: 9px;
               flex-wrap: wrap;
               background-color: $white;
               border: 1px solid #100f141a;
               border-radius: 9px;
+              &.show{
+                display: flex;
+              }
               .category-btn {
                 background-color: $white;
                 color: $black;

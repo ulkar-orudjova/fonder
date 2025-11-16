@@ -46,13 +46,15 @@
           align-items: center;
           padding: 10px 24px;
           border-radius: 8px;
+          border: 1px solid $darkGray;
           background: $darkGray;
+          color: $white;
+          font-size: 18px;
           &:hover {
             background-color: $orange;
+            border: 1px solid $orange;
           }
-          a {
-            color: $white;
-          }
+         
         }
       }
       .right-side {

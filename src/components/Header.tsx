@@ -4,6 +4,8 @@ import ArrowRight from "../assets/images/icons/arrow-right.svg?react";
 import Hamburger from "hamburger-react";
 import { useState } from "react";
 
+
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -27,9 +29,10 @@ const Header = () => {
                 </li>
               </ul>
             </nav>
-            <div className="lets-work">
-              <Link to={""}>Let's Work</Link>
-            </div>
+            <button className="lets-work">
+              Let's Work
+            </button>
+        
           </div>
           <div className="right-side">
             <button className="cart-btn">
