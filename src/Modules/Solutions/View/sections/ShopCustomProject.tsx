@@ -3,7 +3,7 @@ import customProject from "../../../../assets/images/custom-project.webp";
 
 const ShopCustomProject = () => {
   return (
-    <section className="shop-custom-project">
+    <section data-aos = "fade-up"  className="shop-custom-project">
       <div className="container">
         <div className="row">
           <div className="left-side">

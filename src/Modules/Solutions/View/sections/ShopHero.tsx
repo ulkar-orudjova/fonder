@@ -7,7 +7,7 @@ interface ShopHeroProps {
 
 const ShopHero: FC<ShopHeroProps> = ({onShopClick}) => {
   return (
-     <section className="shop-hero">
+     <section data-aos = "fade-up" className="shop-hero">
         <div className="container">
             <div className="row">
                 <h1 className="title">Shop Solutions for Growing brands</h1>

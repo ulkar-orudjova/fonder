@@ -59,7 +59,7 @@ const Work = () => {
   };
 
   return (
-    <section className="work">
+    <section data-aos = "fade-up" className="work">
       <div className="container">
         <div className="row">
           <div className="work-top">

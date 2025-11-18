@@ -1,3 +1,4 @@
+
 import BrandIntro from "./BrandIntro";
 import FeaturedWork from "./FeaturedWork";
 import Hero from "./Hero";
@@ -6,7 +7,14 @@ import ProjectBundles from "./ProjectBundles";
 import ProjectOutcome from "./ProjectOutcome";
 import WorkWithUs from "./WorkWithUs";
 
-const Home = () => {
+//animasiya
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+
+const Home:React.FC = () => {
+  useEffect(() => {
+    AOS.refresh(); 
+  }, []);
   return (
     <main className="home">
       <Hero />

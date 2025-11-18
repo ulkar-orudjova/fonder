@@ -39,9 +39,8 @@ if(loading){
   return <Loading/>
 }
 
-
   return (
-    <section className="shop-details">
+    <section data-aos = "fade-up" className="shop-details">
       <div className="container">
         <div className="row">
           <div className="left-side">

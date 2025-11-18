@@ -10,7 +10,7 @@ interface ShopProductsProps {
 const ShopProducts = forwardRef<HTMLDivElement, ShopProductsProps>(
   ({ products }, ref) => {
     return (
-      <section ref={ref} className="shop-products">
+      <section data-aos = "fade-up"  ref={ref} className="shop-products">
         <div className="container">
           <div className="row">
             {products.map((product) => (

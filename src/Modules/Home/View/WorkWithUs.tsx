@@ -14,7 +14,7 @@ const WorkWithUs = () => {
   return (
     <section className="work-with-us">
       <div className="container">
-        <div className="row">
+        <div  className="row">
           <span className="headline">Good things come in lean teams</span>
           <h2 className="title">
             <p className="info">

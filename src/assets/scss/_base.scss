@@ -47,7 +47,7 @@ img {
 
 .dashed {
   width: 100%;
-  background-color:$bgColorDashed;
+  background-color: $bgColorDashed;
 }
 
 .btn {
@@ -60,21 +60,69 @@ img {
   }
 }
 
-.hidden{
-  display: none!important;
+.hidden {
+  display: none !important;
 }
 
-main{
+main {
   display: flex;
   flex-direction: column;
   gap: 126px;
 }
 
-@media (max-width: 768px) {
-  .btn {
-  .arrow-right {
-    width: 14px;
-    height: 14px;
+@media (max-width: 1200px) {
+  main {
+    gap: 108px;
   }
 }
+
+@media (max-width: 992px) {
+  main {
+    gap: 105px;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    gap: 43px;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    gap: 47px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    width: 94.7%;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    width: 93.7%;
+  }
+}
+
+@media (max-width: 768px) {
+ .container {
+    width: 96%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 93%;
+  }
+}
+
+@media (max-width: 768px) {
+  .btn {
+    .arrow-right {
+      width: 14px;
+      height: 14px;
+    }
+  }
 }

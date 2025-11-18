@@ -16,7 +16,7 @@ import brandsImgFour from "../../../assets/images/hero/brands-img-4.webp";
 
 const Hero = () => {
   return (
-    <section className="hero">
+    <section data-aos = "fade-up" className="hero">
       <div className="container">
         <div className="row">
           <h1 className="title">
