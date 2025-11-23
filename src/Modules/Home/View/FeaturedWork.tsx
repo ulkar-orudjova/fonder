@@ -26,7 +26,7 @@ const FeaturedWork = () => {
             </CustomButton>
           </div>
           <div className="bottom">
-            <div data-aos = "fade-down-right" data-aos-delay="200" className="card">
+            <div data-aos = "fade-down-right" className="card">
               <Link to={"/work"}>
                 <div className="card-image">
                   <img src={Plyo} alt="plyo-img" />
@@ -48,7 +48,7 @@ const FeaturedWork = () => {
                 </div>
               </Link>
             </div>
-            <div className="card">
+            <div data-aos = "fade-down-right"  className="card">
               <Link to={"/work"}>
                 <div className="card-image">
                   <img src={MereCatch} alt="mere-catch-img" />
@@ -59,7 +59,7 @@ const FeaturedWork = () => {
                 </div>
               </Link>
             </div>
-            <div className="card">
+            <div data-aos = "fade-down-left"  className="card">
               <Link to={"/work"}>
                 <div className="card-image">
                   <img src={GoldBug} alt="gold-bug-img" />

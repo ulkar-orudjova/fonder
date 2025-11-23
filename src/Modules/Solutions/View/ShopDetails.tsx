@@ -12,7 +12,6 @@ import type { IProduct } from "../Models/ShopModel";
 
 const ShopDetails = () => {
   const {id} = useParams();
-  console.log(id)
 
   const [loading, setLoading] = useState(false);
 const [product, setProduct] = useState<IProduct>();

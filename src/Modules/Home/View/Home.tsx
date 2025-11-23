@@ -16,7 +16,7 @@ const Home:React.FC = () => {
     AOS.refresh(); 
   }, []);
   return (
-    <main className="home">
+    <main >
       <Hero />
       <BrandIntro />
       <ProjectBundles />
