@@ -157,6 +157,11 @@
               letter-spacing: -0.4px;
             }
           }
+          a{
+            button{
+              width: 100%;
+            }
+          }
         }
         .cart-product {
           display: flex;
@@ -257,6 +262,11 @@
             font-size: 15px;
             line-height: 20px;
             letter-spacing: -0.4px;
+          }
+          a{
+            button{
+              width: 100%;
+            }
           }
         }
       }

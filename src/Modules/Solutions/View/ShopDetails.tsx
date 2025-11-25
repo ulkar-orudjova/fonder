@@ -9,37 +9,39 @@ import { useEffect, useState } from "react";
 import { ShopService } from "../Service/ShopService";
 import Loading from "../../../components/Loading";
 import type { IProduct } from "../Models/ShopModel";
+import { useAppDispatch } from "../../../redux/hooks";
+import { addToCart } from "../../../redux/slices/productSlice";
 
 const ShopDetails = () => {
-  const {id} = useParams();
-
+  const { id } = useParams();
+  const dispatch = useAppDispatch()
   const [loading, setLoading] = useState(false);
-const [product, setProduct] = useState<IProduct>();
+  const [product, setProduct] = useState<IProduct>({} as IProduct);
 
-const getDetails = async () =>{
-  setLoading(true)
-  try{
-    if(id){
-       const res = await ShopService.productDetails(id);
-         setProduct(res)
+  const getDetails = async () => {
+    setLoading(true);
+    try {
+      if (id) {
+        const res = await ShopService.productDetails(id);
+        setProduct(res);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
     }
-  } catch(error){
-    console.log(error)
-  }finally{
-    setLoading(false)
-  }
-};
+  };
 
-useEffect(() =>{
+  useEffect(() => {
     getDetails();
-}, []);
+  }, []);
 
-if(loading){
-  return <Loading/>
-}
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
-    <section data-aos = "fade-up" className="shop-details">
+    <section data-aos="fade-up" className="shop-details">
       <div className="container">
         <div className="row">
           <div className="left-side">
@@ -60,9 +62,7 @@ if(loading){
               <h1 className="title">{product?.name}</h1>
               <p className="price">${product?.price},000</p>
               <div className="stars"></div>
-              <p className="text">
-                {product?.details}
-              </p>
+              <p className="text">{product?.details}</p>
               <div className="underline">
                 <Dashed />
               </div>
@@ -73,7 +73,7 @@ if(loading){
             </div>
 
             <CustomButton
-              onClick={() => {}}
+              onClick={() => {dispatch(addToCart(product))}}
               className="add-btn"
               text="Add to Contact Cart"
             />
@@ -82,34 +82,35 @@ if(loading){
               <div className="advantage">
                 <img
                   src="https://cdn.sanity.io/images/zob55qdr/production/fa4b00c129b0efb506cec0237fb16294429af31a-18x18.svg?w=18&h=18&auto=format"
-                  alt=""
+                  alt="advantage-img"
                 />
                 <p className="advantage-text">Easy to Start</p>
               </div>
               <div className="advantage">
                 <img
                   src="https://cdn.sanity.io/images/zob55qdr/production/fa4b00c129b0efb506cec0237fb16294429af31a-18x18.svg?w=18&h=18&auto=format"
-                  alt=""
+                  alt="advantage-img"
                 />
                 <p className="advantage-text">Easy to Start</p>
               </div>
               <div className="advantage">
                 <img
                   src="https://cdn.sanity.io/images/zob55qdr/production/fa4b00c129b0efb506cec0237fb16294429af31a-18x18.svg?w=18&h=18&auto=format"
-                  alt=""
+                  alt="advantage-img"
                 />
                 <p className="advantage-text">Easy to Start</p>
               </div>
-            </div>
-            <div className="accordion">
-              
             </div>
           </div>
           <div className="right-side">
-            <img className="detail-img" src={product?.productImage} alt={product?.name} />
-            <img src={detailImg2} alt="" />
-            <img src={detailImg3} alt="" />
-            <img src={detailImg4} alt="" />
+            <img
+              className="detail-img"
+              src={product?.productImage}
+              alt={product?.name}
+            />
+            <img src={detailImg2} alt="details-img" />
+            <img src={detailImg3} alt="details-img" />
+            <img src={detailImg4} alt="details-img" />
           </div>
         </div>
       </div>

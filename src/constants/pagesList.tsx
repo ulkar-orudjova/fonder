@@ -4,6 +4,7 @@ import Home from "../Modules/Home/View/Home";
 import Shop from "../Modules/Solutions/View/Shop";
 import Work from "../Modules/Work/View/Work";
 import ShopDetails from "../Modules/Solutions/View/ShopDetails";
+import Cart from "../Modules/Cart/View/Cart";
 
 interface IPages {
   id: string;
@@ -40,6 +41,13 @@ const pages: IPages[] = [
     name: "Work",
     path: "/work",
     element: <Work />,
+    is_visible: true,
+  },
+   {
+    id: "cart",
+    name: "Cart",
+    path: "/cart",
+    element: <Cart/>,
     is_visible: true,
   },
   {

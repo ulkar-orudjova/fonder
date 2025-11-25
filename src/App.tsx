@@ -3,11 +3,15 @@ import Footer from "./components/Footer"
 import Header from "./components/Header"
 import FonderRouter from "./routes/FonderRouter"
 import ScrollToTop from "./components/ScrollToTop";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 //animasiya 
 import React, { useEffect } from "react";
 import 'aos/dist/aos.css';
 import AOS from 'aos';
+
+
 
 
 const App: React.FC = () => {
@@ -23,14 +27,14 @@ useEffect(()=>{
   AOS.refresh();
 },[])
   return (
-    <>
+    <Provider store={store}>
       <Header/>
       <main>
         <ScrollToTop/>
          <FonderRouter/>
       </main>
       <Footer/>
-    </>
+    </Provider>
   
   )
 }

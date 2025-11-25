@@ -5,11 +5,14 @@ import ArrowRight from "../assets/images/icons/arrow-right.svg?react";
 import Dashed from "../assets/images/icons/dashed.svg?react";
 import Delete from "../assets/images/icons/delete.svg?react";
 import Hamburger from "hamburger-react";
-import BrandImg from "../assets/images/brand-audit-img.webp";
 import { useState } from "react";
 import CustomButton from "./CustomButton";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { removeFromCart } from "../redux/slices/productSlice";
 
 const Header = () => {
+  const cart = useAppSelector((state) => state.productSlice.cart);
+  const dispatch = useAppDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const [cartIsOpen, setCartIsOpen] = useState(false);
 
@@ -36,65 +39,104 @@ const Header = () => {
             <button className="lets-work">Let's Work</button>
           </div>
           <div className="right-side">
-            <button className="cart-btn" onClick={() =>{setCartIsOpen(!cartIsOpen)}}>
+            <button
+              className="cart-btn"
+              onClick={() => {
+                setCartIsOpen(!cartIsOpen);
+              }}
+            >
               <span className="cart">🛒</span>
               <span className="count"></span>
             </button>
           </div>
         </div>
         <div className={`cart-window ${cartIsOpen && "open"}`}>
-          <div className="overlay" onClick={()=>{setCartIsOpen(false)}}></div>
+          <div
+            className="overlay"
+            onClick={() => {
+              setCartIsOpen(false);
+            }}
+          ></div>
           <div className="cart-box">
             <div className="cart-head">
               <div className="row">
                 <h2 className="head-title">Contact Cart</h2>
-                <WindowClose className="window-close"  onClick={()=>{setCartIsOpen(false)}} />
+                <WindowClose
+                  className="window-close"
+                  onClick={() => {
+                    setCartIsOpen(false);
+                  }}
+                />
               </div>
             </div>
-            <div className="empty hidden">
-              <div className="row">
-                <h5 className="empty-info">YOUR CART IS EMPTY...</h5>
-                <h6 className="empty-text">Build a contact cart or reach out to get started.</h6>
-              </div>
-              <CustomButton onClick={() =>{}} text="Explore our solutions"/>
-            </div>
-            <div className="cart-product">
-              <div className="dashed">
-                <Dashed />
-              </div>
-              <div className="products">
-                <div className="product">
-                  <div className="product-img">
-                    <img src={BrandImg} alt="" />
-                  </div>
-                  <div className="right-side">
-                    <div className="top">
-                      <div className="cart-info">
-                        <Link to={""}>
-                          <h5 className="title">Brand Experience Audit</h5>
-                        </Link>
-                      </div>
-                      <button className="delete">
-                        <Delete className="remove-svg"/>
-                      </button>
-                    </div>
-                    <p className="cart-price">$2,500</p>
-                    {/* <p className="quantity">Quantity: 1</p> */}
-                  </div>
+            {cart.length === 0 && (
+              <div className="empty">
+                <div className="row">
+                  <h5 className="empty-info">YOUR CART IS EMPTY...</h5>
+                  <h6 className="empty-text">
+                    Build a contact cart or reach out to get started.
+                  </h6>
                 </div>
+                <Link to={"/shop"}>
+                 <CustomButton onClick={() => setCartIsOpen(false)} text="Explore our solutions" />
+                </Link>
+               
+              </div>
+            )}
+
+            <div className="cart-product">
+              {cart.length !== 0 && (
+                <div className="dashed">
+                  <Dashed />
+                </div>
+              )}
+              <div className="products">
+                {cart.map((item) => (
+                  <div className="product" key={item._id}>
+                    <div className="product-img">
+                      <img src={item.productImage} alt={item.name} />
+                    </div>
+                    <div className="right-side">
+                      <div className="top">
+                        <div className="cart-info">
+                          <Link to={"/shop"}>
+                            <h5 className="title">{item.name}</h5>
+                          </Link>
+                        </div>
+                        <button
+                          className="delete"
+                          onClick={() => {
+                            dispatch(removeFromCart(item._id));
+                          }}
+                        >
+                          <Delete className="remove-svg" />
+                        </button>
+                      </div>
+                      <p className="cart-price">${item.price},000</p>
+                      <p className="quantity">Quantity: {item.quantity}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-            <div className="cart-bottom">
-              <div className="dashed">
-                <Dashed />
+            {cart.length !== 0 && (
+              <div className="cart-bottom">
+                <div className="dashed">
+                  <Dashed />
+                </div>
+                <div className="total-price">
+                  <span className="title">Total:</span>
+                  <span className="price">$2,500</span>
+                </div>
+                <Link to={"/cart"}>
+                   <CustomButton onClick={() => {setCartIsOpen(false)}} text="Review and Submit" />
+                </Link>
+               
+                <p className="text">
+                  Don't worry, we're not requesting payment.
+                </p>
               </div>
-              <div className="total-price">
-                <span className="title">Total:</span>
-                <span className="price">$2,500</span>
-              </div>
-              <CustomButton onClick={() =>{}} text="Review and Submit"/>
-              <p className="text">Don't worry, we're not requesting payment.</p>
-            </div>
+            )}
           </div>
         </div>
 

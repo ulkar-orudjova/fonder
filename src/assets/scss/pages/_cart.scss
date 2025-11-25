@@ -1,0 +1,188 @@
+@use "../variables" as *;
+.cart-contact {
+  position: relative;
+  width: 100%;
+  padding-top: 162px;
+  padding-bottom: 90px;
+  //margin-bottom: -108px;
+  .cart-right-bg-color {
+    //display: block;
+    width: 50%;
+    background-color: #ecede4;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .container {
+    .grid {
+      position: relative;
+      width: 100%;
+      max-width: 1440px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 54px;
+      margin-left: auto;
+      margin-right: auto;
+      .contact-cart {
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+        max-width: 648px;
+        //padding-left: 54px;
+        padding-right: 54px;
+        .contact-cart-title {
+          text-transform: uppercase;
+          font-size: 72px;
+          letter-spacing: -3.6px;
+          line-height: 1.05;
+          font-weight: 700;
+          font-family: stroy;
+        }
+        .cart-list{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 27px;
+            .list-item{
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                .stage{
+                    font-size: 14px;
+                    line-height: 18px;
+                    letter-spacing: -0.4px;
+                    background-color: $black;
+                    color:$white;
+                    width: 22px;
+                    height: 22px;
+                    border-radius: 9999px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .info{
+                    color: $black;
+                    font-size: 18px;
+                    margin-bottom: -3px;
+                }
+            }
+        }
+        .border {
+          border: 1px solid $black;
+        }
+        .products {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          .product {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: $black;
+            .product-img {
+              display: flex;
+              flex-shrink: 0;
+              width: 78px;
+              height: 78px;
+              img {
+                border-radius: 8px;
+              }
+            }
+            .right-side {
+              width: 100%;
+              padding-right: 8px;
+              .top {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 16px;
+                .cart-info {
+                  a {
+                    color: $black;
+                    .title {
+                      font-size: 18px;
+                      line-height: 23px;
+                      letter-spacing: -0.5px;
+                      &:hover {
+                        text-decoration-line: underline;
+                        opacity: 0.4;
+                      }
+                    }
+                  }
+                }
+                .delete {
+                  cursor: pointer;
+                  border: none;
+                  background-color: inherit;
+                  opacity: 0.4;
+                  &:hover {
+                    opacity: 1;
+                  }
+                  .remove-svg {
+                    width: 16px;
+                    height: 16px;
+                  }
+                }
+              }
+              .cart-price {
+                font-size: 14px;
+                line-height: 20px;
+                letter-spacing: -0.7px;
+                color: $grey;
+                font-family: stroy;
+              }
+            }
+          }
+        }
+        .contact-cart-bottom {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+          .total-price {
+            display: flex;
+            gap: 16px;
+            justify-content: space-between;
+            align-items: center;
+            text-transform: uppercase;
+            font-size: 24px;
+            letter-spacing: -1px;
+            line-height: 23px;
+            span {
+              font-family: stroy;
+            }
+          }
+          .cart-link{
+            display: block;
+            text-align: center;
+            margin-top: 18px;
+           
+            a{
+                color:$black;
+                text-decoration-line: underline;
+                font-size: 18px;
+                line-height: 27px;
+                letter-spacing: -0.5px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                gap: 18px;
+                .arrow-right{
+                    background-color: $black;
+                    color: $white;
+                    padding: 9px;
+                    width: 36px;
+                    height: 36px;
+                    margin-top: 2px;
+                    border-radius: 9999px;
+                }
+            }
+          }
+        }
+      }
+    }
+  }
+}
