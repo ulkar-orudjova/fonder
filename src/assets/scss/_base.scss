@@ -60,6 +60,51 @@ img {
   }
 }
 
+input,
+select,
+textarea {
+  width: 100%;
+  max-width: 100%;
+  padding: 14px;
+  border-radius: 7px;
+  border-width: 1px;
+  border-color: $black;
+  background-color: inherit;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+@media (max-width: 992px) {
+  input,
+  select,
+  textarea {
+    font-size: 15px;
+  }
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  border: none;
+  label {
+    font-size: 17px;
+    line-height: 23px;
+    letter-spacing: -0.5px;
+  }
+}
+
+@media (max-width: 992px) {
+  fieldset {
+    gap: 9px;
+    label {
+      font-size: 14px;
+      line-height: 23px;
+      letter-spacing: -0.5px;
+    }
+  }
+}
+
 .hidden {
   display: none !important;
 }
@@ -107,7 +152,7 @@ main {
 }
 
 @media (max-width: 768px) {
- .container {
+  .container {
     width: 96%;
   }
 }

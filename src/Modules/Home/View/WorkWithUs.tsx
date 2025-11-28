@@ -1,5 +1,7 @@
 import ArrowRight from "../../../assets/images/icons/arrow-right.svg?react";
 import CustomButton from "../../../components/CustomButton";
+import { useAppDispatch } from "../../../redux/hooks";
+import { setIsContactModalOpen } from "../../../redux/slices/modalSlice";
 import { sliderData } from "../../../db/sliderDb";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,7 +11,9 @@ import "swiper/css";
 // import required modules
 import { Autoplay } from "swiper/modules";
 
+
 const WorkWithUs = () => {
+  const dispatch = useAppDispatch();
   const repeatedSlides = Array(10).fill(sliderData).flat();
   return (
     <section className="work-with-us">
@@ -23,7 +27,7 @@ const WorkWithUs = () => {
             </p>
           </h2>
           <div className="work-with-us-btn">
-            <CustomButton onClick={() => {}} text="Let's work" className="pink">
+            <CustomButton onClick={()=>dispatch(setIsContactModalOpen(true))} text="Let's work" className="pink">
               <ArrowRight className="arrow-right" />
             </CustomButton>
           </div>

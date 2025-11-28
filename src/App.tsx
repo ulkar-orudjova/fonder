@@ -10,6 +10,7 @@ import { store } from "./redux/store";
 import React, { useEffect } from "react";
 import 'aos/dist/aos.css';
 import AOS from 'aos';
+import CustomContact from "./components/CustomContact";
 
 
 
@@ -32,6 +33,7 @@ useEffect(()=>{
       <main>
         <ScrollToTop/>
          <FonderRouter/>
+         <CustomContact/>
       </main>
       <Footer/>
     </Provider>

@@ -9,9 +9,11 @@ import { useState } from "react";
 import CustomButton from "./CustomButton";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { removeFromCart } from "../redux/slices/productSlice";
+import { setIsContactModalOpen } from "../redux/slices/modalSlice";
 
 const Header = () => {
   const cart = useAppSelector((state) => state.productSlice.cart);
+  const cartCount = useAppSelector((state) => state.productSlice.cartCount);
   const dispatch = useAppDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const [cartIsOpen, setCartIsOpen] = useState(false);
@@ -36,7 +38,7 @@ const Header = () => {
                 </li>
               </ul>
             </nav>
-            <button className="lets-work">Let's Work</button>
+            <button className="lets-work" onClick={()=>dispatch(setIsContactModalOpen(true))}>Let's Work</button>
           </div>
           <div className="right-side">
             <button
@@ -46,7 +48,7 @@ const Header = () => {
               }}
             >
               <span className="cart">🛒</span>
-              <span className="count"></span>
+              <span className="count hidden">{cartCount}</span>
             </button>
           </div>
         </div>
@@ -175,7 +177,7 @@ const Header = () => {
                   </NavLink>
                 </li>
                 <li className="nav-item lets-work">
-                  <Link to={""}>Let's Work</Link>
+                  <Link onClick={()=>dispatch(setIsContactModalOpen(true))} to={""}>Let's Work</Link>
                   <span className="lets-work-svg">
                     <ArrowRight className="arrow-right" />
                   </span>

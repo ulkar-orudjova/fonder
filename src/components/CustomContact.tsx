@@ -1,11 +1,28 @@
 import Dashed from "../assets/images/icons/dashed.svg?react";
+import ArrowRight from "../assets/images/icons/arrow-right.svg?react";
+import Wifi from "../assets/images/icons/wifi.svg?react";
+import Close from "../assets/images/icons/close.svg?react";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { setIsContactModalOpen } from "../redux/slices/modalSlice";
 import CustomButton from "./CustomButton";
+import { contactListDb } from "../db/sliderDb";
+import { Link } from "react-router-dom";
 
 const CustomContact = () => {
+  const state = useAppSelector((state) => state.modalSlice.isContactModalOpen);
+  const dispatch = useAppDispatch();
+
+  console.log(state);
+
+  // if (!isModalOpen) {
+  //   return null;
+  // }
+
   return (
-    <div className="custom-contact">
-      <div className="container">
+    <div className={`custom-contact ${state ? 'active' : ''}`}>
+      <div className="fixed">
         <div className="overlay"></div>
+
         <div className="contact">
           <div className="grid">
             <div className="contact-form">
@@ -29,7 +46,7 @@ const CustomContact = () => {
                         placeholder="Your Name"
                       />
                     </fieldset>
-                      <fieldset>
+                    <fieldset>
                       <label htmlFor="job-title">
                         Job Title <span>*</span>
                       </label>
@@ -66,20 +83,65 @@ const CustomContact = () => {
                     </fieldset>
                   </div>
                   <fieldset>
-                    <label htmlFor="message">Message <span>*</span></label>
-                    <textarea className="form-textarea" name="message" id="message" placeholder="Tell us about your project and goals."></textarea>
+                    <label htmlFor="message">
+                      Message <span>*</span>
+                    </label>
+                    <textarea
+                      className="form-textarea"
+                      name="message"
+                      id="message"
+                      placeholder="Tell us about your project and goals."
+                    ></textarea>
                   </fieldset>
                   <div className="form-btn">
-                    <CustomButton onClick={() =>{}} text="Submit"></CustomButton>
+                    <CustomButton onClick={() => {}} text="Submit">
+                      <ArrowRight className="arrow-right" />
+                    </CustomButton>
                   </div>
                 </form>
               </div>
             </div>
             <div className="contact-info">
-
+              <div className="contact-info-top">
+                <Wifi className="contact-svg" />
+                <h2 className="title">Working All Over</h2>
+                <p className="contact-text">
+                  Fonder is a U.S. based team of industry leaders working in
+                  various locations across the U.S.
+                </p>
+              </div>
+              <ul className="contact-list">
+                {contactListDb.map((item) => (
+                  <li className="list-item" key={item.id}>
+                    <img src={item.img} alt={item.name} />
+                    <p className="list-info">
+                      <span className="list-title">{item.name}</span>
+                      <span className="list-name">{item.title}</span>
+                    </p>
+                  </li>
+                ))}
+              </ul>
+              <div className="underline">
+                <Dashed />
+              </div>
+              <div className="contact-info-bottom">
+                <p className="contact-info-bottom-title">Hit us direct</p>
+                <div className="contact-info-bottom-links">
+                  <Link to={"mailto:hello@fonder.studio"}>hello@fonder.studio</Link>
+                  <span className="divider">|</span>
+                   <Link to={"tel:801.252.5442"}>801.252.5442</Link>
+                </div>
+              </div>
             </div>
             <div className="close-button">
-                <CustomButton  onClick={() => {}} text="Close"></CustomButton>
+              <CustomButton
+                className="close-btn"
+                onClick={() => dispatch(setIsContactModalOpen(false))}
+                text="Close"
+              >
+                <Close/>
+              </CustomButton>
+              
             </div>
           </div>
         </div>

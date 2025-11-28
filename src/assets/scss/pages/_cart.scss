@@ -3,10 +3,10 @@
   position: relative;
   width: 100%;
   padding-top: 162px;
-  padding-bottom: 90px;
+  //padding-bottom: 90px;
   //margin-bottom: -108px;
   .cart-right-bg-color {
-    //display: block;
+    display: block;
     width: 50%;
     background-color: #ecede4;
     position: absolute;
@@ -180,6 +180,30 @@
                     border-radius: 9999px;
                 }
             }
+          }
+        }
+      }
+      .contact-form{
+        padding: 54px;
+        .row{
+          display: flex;
+          flex-direction: column;
+          gap: 27px;
+          .form{
+            display: flex;
+            flex-direction: column;
+            gap: 27px;
+            .form-group{
+              display: grid;
+              grid-template-columns: repeat(2, minmax(0, 1fr));
+              gap: 18px;
+            }
+           fieldset{
+            textarea{
+              width: 100%;
+              min-height: 216px;
+            }
+           }
           }
         }
       }

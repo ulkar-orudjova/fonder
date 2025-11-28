@@ -3,8 +3,11 @@ import ArrowRight from "../assets/images/icons/arrow-right.svg?react";
 import Dashed from "../assets/images/icons/dashed.svg?react"
 import Logo from "../assets/images/icons/logo.svg?react";
 import CustomButton from "./CustomButton";
+import { useAppDispatch } from "../redux/hooks";
+import { setIsContactModalOpen } from "../redux/slices/modalSlice";
 
 const Footer = () => {
+  const dispatch = useAppDispatch();
   return (
     <footer className="footer">
       <div className="container">
@@ -14,7 +17,7 @@ const Footer = () => {
               Don't hope for growth. Design it.
             </h2>
             <div className="footer-btn">
-                 <CustomButton onClick={() =>{}} text = "Let's work 💬"/>
+                 <CustomButton onClick={()=>dispatch(setIsContactModalOpen(true))} text = "Let's work 💬"/>
             </div>
             
           </div>
@@ -45,7 +48,7 @@ const Footer = () => {
                   <Link to={"/work"}>Our Work</Link>
                 </div>
                 <div className="nav-link">
-                  <Link to={"/shop"}>Contact</Link>
+                  <Link onClick={()=>dispatch(setIsContactModalOpen(true))}  to={""}>Contact</Link>
                 </div>
                 <ul className="nav-item">
                   <li className="item-list">

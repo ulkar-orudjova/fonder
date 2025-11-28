@@ -1,7 +1,10 @@
 import CustomButton from "../../../../components/CustomButton";
 import customProject from "../../../../assets/images/custom-project.webp";
+import { useAppDispatch } from "../../../../redux/hooks";
+import { setIsContactModalOpen } from "../../../../redux/slices/modalSlice";
 
 const ShopCustomProject = () => {
+  const dispatch = useAppDispatch();
   return (
     <section data-aos = "fade-up"  className="shop-custom-project">
       <div className="container">
@@ -14,7 +17,7 @@ const ShopCustomProject = () => {
                 with our team to build a tailored approach.
               </p>
               <div className="button">
-                <CustomButton onClick={() => {}} text="Start a project" />
+                <CustomButton onClick={()=>dispatch(setIsContactModalOpen(true))} text="Start a project" />
               </div>
             </div>
           </div>

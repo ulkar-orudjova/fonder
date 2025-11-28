@@ -1,7 +1,10 @@
 import ArrowRight from "../../../assets/images/icons/arrow-right.svg?react";
 import CustomButton from "../../../components/CustomButton";
+import { useAppDispatch } from "../../../redux/hooks";
+import { setIsContactModalOpen } from "../../../redux/slices/modalSlice";
 
 const BrandIntro = () => {
+  const dispatch = useAppDispatch();
   return (
     <section className="brand-intro">
       <div className="container">
@@ -14,7 +17,7 @@ const BrandIntro = () => {
             </p>
           </h2>
           <div className="brand-intro-btn">
-            <CustomButton onClick={() => {}} text="Let's work" className="blue">
+            <CustomButton onClick={()=>dispatch(setIsContactModalOpen(true))} text="Let's work" className="blue">
               <ArrowRight className="arrow-right" />
             </CustomButton>
           </div>

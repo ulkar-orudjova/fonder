@@ -3,17 +3,26 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import type { IProduct } from '../../Modules/Solutions/Models/ShopModel'
 
 export interface IProductState {
-  cart: IProduct[]
+  cart: IProduct[];
+  cartCount: number;
 }
 
 const initialState: IProductState = {
- cart:[]
+ cart:[],
+ cartCount: 0,
 }
 
 export const productSlice = createSlice({
   name: 'productSlice',
   initialState,
   reducers: {
+    calculateCartCount: (state) => {
+        //@ts-ignore
+        state.cartCount = state.cart
+        .map((item) =>item.quantity)
+         //@ts-ignore
+        .reduce((acc, curr) => acc + curr, 0);
+    },
     addToCart: (state, action: PayloadAction<IProduct>) =>{
         const existing = state.cart.find(
             (item) => item._id === action.payload._id
