@@ -7,3 +7,13 @@ export interface IProduct{
     __v: number;
     quantity?: number;
 }
+
+export enum SetProductCountEnum {
+  INCREMENT = "increment",
+  DECREMENT = "decrement",
+}
+
+export interface IProductParams {
+  productId: string;
+  countType: SetProductCountEnum;
+}

@@ -13,8 +13,6 @@ import AOS from 'aos';
 import CustomContact from "./components/CustomContact";
 
 
-
-
 const App: React.FC = () => {
 useEffect(()=>{
   AOS.init({

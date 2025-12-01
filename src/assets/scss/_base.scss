@@ -54,9 +54,11 @@ img {
   display: flex;
   align-items: center;
   gap: 10px;
+
   .arrow-right {
     width: 17px;
     height: 17px;
+    padding-top: 4px;
   }
 }
 

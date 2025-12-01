@@ -109,9 +109,9 @@
       opacity: 0;
       visibility: hidden;
        transform: translateX(100%);
-      z-index: 99;
+      z-index: 9999;
       &.open {
-        transform: translateX(0%);
+       transform: translateX(0%);
         opacity: 1;
         visibility: visible;
       }
@@ -346,6 +346,20 @@
               cursor: pointer;
               transition: transform 0.3s ease;
             }
+            .count{
+            position: absolute;
+            top:4px;
+            right: 4px;
+            width: 17px;
+            height: 17px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $orange;
+            border-radius: 9999px;
+            color: $white;
+            font-size: 11px;
+          }
           }
         }
       }

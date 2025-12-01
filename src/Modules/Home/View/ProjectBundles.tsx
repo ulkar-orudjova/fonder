@@ -4,9 +4,14 @@ import BrandBuild from "../../../assets/images/brand-build-img.webp";
 import ShopifyWebsite from "../../../assets/images/shopify-website-img.webp";
 import BrandAudit from "../../../assets/images/brand-audit-img.webp";
 import CustomProject from "../../../assets/images/custom-project-img.webp";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ProjectBundles = () => {
+  const navigate = useNavigate();
+
+  const goToShop = () => {
+    navigate("/shop");
+  };
   return (
     <section className="project-bundles">
       <div className="container">
@@ -17,7 +22,7 @@ const ProjectBundles = () => {
               <h2 className="title">Project Bundles</h2>
             </div>
             <div className="right-side">
-              <CustomButton onClick={() => {}} text="All solutions">
+              <CustomButton onClick={goToShop} text="All solutions">
                 <ArrowRight className="arrow-right" />
               </CustomButton>
             </div>

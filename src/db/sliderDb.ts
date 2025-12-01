@@ -10,6 +10,9 @@ import larkspur from "../assets/images/slider/slider-larkspur.webp";
 import contactImg from "../assets/images/contact-img.webp";
 import contactImg2 from "../assets/images/contact-img2.webp";
 import contactImg3 from "../assets/images/contact-img3.webp";
+import pricing from "../assets/images/icons/pricing.svg";
+import time from "../assets/images/icons/time.svg";
+import unlimited from "../assets/images/icons/unlimited.svg";
 
 interface ISliderData {
   id: number;
@@ -55,14 +58,38 @@ export const sliderData: ISliderData[] = [
   },
 ];
 
-interface IcontactListDb {
+interface IAdvantageDb {
+  id: number;
+  svg: string;
+  text: string;
+}
+
+export const advantageDb: IAdvantageDb[] = [
+  {
+    id: 1,
+    svg:pricing,
+    text: "Flat Fee Pricing",
+  },
+  {
+    id: 2,
+    svg: time,
+    text: "Always On Time",
+  },
+  {
+    id: 3,
+    svg: unlimited,
+    text: "Unlimited Revisions",
+  },
+];
+
+interface IContactListDb {
   id: number;
   img: string;
   name: string;
   title: string;
 }
 
-export const contactListDb: IcontactListDb[] = [
+export const contactListDb: IContactListDb[] = [
   {
     id: 1,
     img: contactImg,

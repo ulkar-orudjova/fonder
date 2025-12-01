@@ -13,10 +13,12 @@ import { setIsContactModalOpen } from "../redux/slices/modalSlice";
 
 const Header = () => {
   const cart = useAppSelector((state) => state.productSlice.cart);
+  const totalPrice = useAppSelector((state) => state.productSlice.totalPrice);
   const cartCount = useAppSelector((state) => state.productSlice.cartCount);
   const dispatch = useAppDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const [cartIsOpen, setCartIsOpen] = useState(false);
+  console.log(cartCount);
 
   return (
     <header className="header">
@@ -38,7 +40,12 @@ const Header = () => {
                 </li>
               </ul>
             </nav>
-            <button className="lets-work" onClick={()=>dispatch(setIsContactModalOpen(true))}>Let's Work</button>
+            <button
+              className="lets-work"
+              onClick={() => dispatch(setIsContactModalOpen(true))}
+            >
+              Let's Work
+            </button>
           </div>
           <div className="right-side">
             <button
@@ -48,7 +55,7 @@ const Header = () => {
               }}
             >
               <span className="cart">🛒</span>
-              <span className="count hidden">{cartCount}</span>
+              <span className="count">{cartCount}</span>
             </button>
           </div>
         </div>
@@ -80,9 +87,13 @@ const Header = () => {
                   </h6>
                 </div>
                 <Link to={"/shop"}>
-                 <CustomButton onClick={() => setCartIsOpen(false)} text="Explore our solutions" />
+                  <CustomButton
+                    onClick={() => setCartIsOpen(false)}
+                    text="Explore our solutions"
+                  >
+                    <ArrowRight className="arrow-right"/>
+                  </CustomButton>
                 </Link>
-               
               </div>
             )}
 
@@ -128,12 +139,17 @@ const Header = () => {
                 </div>
                 <div className="total-price">
                   <span className="title">Total:</span>
-                  <span className="price">$2,500</span>
+                  <span className="price">${totalPrice},000</span>
                 </div>
                 <Link to={"/cart"}>
-                   <CustomButton onClick={() => {setCartIsOpen(false)}} text="Review and Submit" />
+                  <CustomButton
+                    onClick={() => {
+                      setCartIsOpen(false);
+                    }}
+                    text="Review and Submit"
+                  />
                 </Link>
-               
+
                 <p className="text">
                   Don't worry, we're not requesting payment.
                 </p>
@@ -157,8 +173,14 @@ const Header = () => {
             </Link>
           </div>
           <div className="right-side">
-            <button className="cart-btn">
+            <button
+              className="cart-btn"
+              onClick={() => {
+                setCartIsOpen(!cartIsOpen);
+              }}
+            >
               <span className="cart">🛒</span>
+              <span className="count">{cartCount}</span>
             </button>
           </div>
         </div>
@@ -177,7 +199,12 @@ const Header = () => {
                   </NavLink>
                 </li>
                 <li className="nav-item lets-work">
-                  <Link onClick={()=>dispatch(setIsContactModalOpen(true))} to={""}>Let's Work</Link>
+                  <Link
+                    onClick={() => dispatch(setIsContactModalOpen(true))}
+                    to={""}
+                  >
+                    Let's Work
+                  </Link>
                   <span className="lets-work-svg">
                     <ArrowRight className="arrow-right" />
                   </span>

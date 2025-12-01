@@ -11,10 +11,11 @@ import Loading from "../../../components/Loading";
 import type { IProduct } from "../Models/ShopModel";
 import { useAppDispatch } from "../../../redux/hooks";
 import { addToCart } from "../../../redux/slices/productSlice";
+import { advantageDb } from "../../../db/sliderDb";
 
 const ShopDetails = () => {
   const { id } = useParams();
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(false);
   const [product, setProduct] = useState<IProduct>({} as IProduct);
 
@@ -73,33 +74,23 @@ const ShopDetails = () => {
             </div>
 
             <CustomButton
-              onClick={() => {dispatch(addToCart(product))}}
+              onClick={() => {
+                dispatch(addToCart(product));
+              }}
               className="add-btn"
               text="Add to Contact Cart"
             />
 
             <div className="advantages">
-              <div className="advantage">
-                <img
-                  src="https://cdn.sanity.io/images/zob55qdr/production/fa4b00c129b0efb506cec0237fb16294429af31a-18x18.svg?w=18&h=18&auto=format"
-                  alt="advantage-img"
-                />
-                <p className="advantage-text">Easy to Start</p>
-              </div>
-              <div className="advantage">
-                <img
-                  src="https://cdn.sanity.io/images/zob55qdr/production/fa4b00c129b0efb506cec0237fb16294429af31a-18x18.svg?w=18&h=18&auto=format"
-                  alt="advantage-img"
-                />
-                <p className="advantage-text">Easy to Start</p>
-              </div>
-              <div className="advantage">
-                <img
-                  src="https://cdn.sanity.io/images/zob55qdr/production/fa4b00c129b0efb506cec0237fb16294429af31a-18x18.svg?w=18&h=18&auto=format"
-                  alt="advantage-img"
-                />
-                <p className="advantage-text">Easy to Start</p>
-              </div>
+              {advantageDb.map((item) => (
+                <div className="advantage" key={item.id}>
+                  <img
+                    src={item.svg}
+                    alt={item.text}
+                  />
+                  <p className="advantage-text">{item.text}</p>
+                </div>
+              ))}
             </div>
           </div>
           <div className="right-side">
