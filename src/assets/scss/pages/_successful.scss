@@ -1,0 +1,45 @@
+@use "../variables" as *;
+
+.success{
+    width: 100%;
+    padding-top: 162px;
+    color: $black;
+    .container{
+        .row{
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            align-items: center;
+            .right-side{
+                img{
+                    border-radius: 18px;
+                }
+            }
+            .left-side{
+                padding: 54px;
+                max-width: 756px;
+                display: flex;
+                flex-direction: column;
+                gap: 27px;
+                align-items: flex-start;
+                justify-self: center;
+                .title{
+                    font-size: 45px;
+                    line-height: 45px;
+                    letter-spacing: -2.2px;
+                }
+                div{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 27px;
+                    align-items: flex-start;
+                    .text{
+                        font-size: 20px;
+                        letter-spacing: -0.6px;
+                        line-height: 1.7;
+                        opacity: .8;
+                    }
+                }
+            }
+        }
+    }
+}

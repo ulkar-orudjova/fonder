@@ -90,10 +90,15 @@ export const productSlice = createSlice({
       productSlice.caseReducers.calculateCartCount(state);
       productSlice.caseReducers.calculateCartTotalPrice(state);
     },
+    clearCart: (state) => {
+      state.cart = [];
+      productSlice.caseReducers.calculateCartCount(state);
+      productSlice.caseReducers.calculateCartTotalPrice(state);
+    },
   },
 });
 
-export const { addToCart, removeFromCart, setProductCount } =
+export const { addToCart, removeFromCart, setProductCount, clearCart } =
   productSlice.actions;
 
 export default productSlice.reducer;

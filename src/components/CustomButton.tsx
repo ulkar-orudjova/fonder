@@ -6,12 +6,13 @@ interface ICustomButton {
     onClick: () => void;
     disable?: boolean;
     children?: ReactNode;
+    type?: "button" | "submit" | "reset";
 }
 
 const CustomButton: FC<ICustomButton> = (props) => {
-    const { text, className, onClick, disable, children } = props;
+    const { text, className, onClick, disable, children, type = "button"} = props;
   return (
-    <button disabled = {disable} onClick={onClick} className={`btn ${className}`}>{text}{children}</button>
+    <button disabled = {disable} type={type} onClick={onClick} className={`btn ${className}`}>{text}{children}</button>
   )
 }
 

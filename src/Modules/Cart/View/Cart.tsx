@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Delete from "../../../assets/images/icons/delete.svg?react";
 import Dashed from "../../../assets/images/icons/dashed.svg?react";
 import ArrowRight from "../../../assets/images/icons/arrow-right.svg?react";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import {
+  clearCart,
   removeFromCart,
   setProductCount,
 } from "../../../redux/slices/productSlice";
@@ -12,14 +13,58 @@ import {
   SetProductCountEnum,
   type IProductParams,
 } from "../../Solutions/Models/ShopModel";
+import { useForm, type SubmitHandler } from "react-hook-form";
+import type { ICheckoutFormData } from "../Models/CartModel";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { object, string } from "yup";
+import { EMAIL_REGEX, MIN_TWO_LETTERS_REGEX } from "../../../utils/helper";
+
+const loginSchema = object({
+  firstName: string()
+    .trim()
+    .required()
+    .matches(
+      MIN_TWO_LETTERS_REGEX,
+      "It must consist of at least 2 symbols!"
+    ),
+  lastName: string()
+    .trim()
+    .required()
+    .matches(
+      MIN_TWO_LETTERS_REGEX,
+      "It must consist of at least 2 symbols!"
+    ),
+  email: string().trim().required().matches(EMAIL_REGEX,"Please enter a valid email address"),
+  company: string().trim().required(),
+  website: string().trim().required(),
+  message: string().trim().required(),
+});
 
 const Cart = () => {
   const cart = useAppSelector((state) => state.productSlice.cart);
   const totalPrice = useAppSelector((state) => state.productSlice.totalPrice);
   const dispatch = useAppDispatch();
-
+  const navigate = useNavigate();
   const handleProductCount = (productParams: IProductParams) => {
     dispatch(setProductCount(productParams));
+  };
+
+  // form validation hissesi
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ICheckoutFormData>({
+    resolver: yupResolver(loginSchema),
+  });
+
+  const onSubmit: SubmitHandler<ICheckoutFormData> = (data) => {
+
+    console.log(data);
+    dispatch(clearCart());
+    reset();
+    navigate("/success");
   };
 
   return (
@@ -33,7 +78,7 @@ const Cart = () => {
             </p>
             <Link to={"/shop"}>
               <CustomButton onClick={() => {}} text="Explore our solutions">
-                <ArrowRight className="arrow-right"/>
+                <ArrowRight className="arrow-right" />
               </CustomButton>
             </Link>
           </div>
@@ -129,7 +174,7 @@ const Cart = () => {
               </div>
               <div className="contact-form">
                 <div className="row">
-                  <form className="form">
+                  <form onSubmit={handleSubmit(onSubmit)} className="form">
                     <div className="form-group personal-info">
                       <fieldset className="first-name">
                         <label htmlFor="first-name">
@@ -139,9 +184,14 @@ const Cart = () => {
                         <input
                           type="text"
                           id="first-name"
-                          name="first-name"
+                          {...register("firstName")}
                           placeholder="Jane"
                         />
+                        {errors.firstName && (
+                          <span className="error-msg">
+                            {errors.firstName.message}
+                          </span>
+                        )}
                       </fieldset>
                       <fieldset className="last-name">
                         <label htmlFor="last-name">
@@ -151,9 +201,14 @@ const Cart = () => {
                         <input
                           type="text"
                           id="last-name"
-                          name="last-name"
+                          {...register("lastName")}
                           placeholder="Doe"
                         />
+                        {errors.firstName && (
+                          <span className="error-msg">
+                            {errors.lastName?.message}
+                          </span>
+                        )}
                       </fieldset>
                     </div>
                     <div className="form-group company-info">
@@ -165,18 +220,28 @@ const Cart = () => {
                         <input
                           type="text"
                           id="company"
-                          name="company"
+                          {...register("company")}
                           placeholder="Schrute Farms"
                         />
+                        {errors.firstName && (
+                          <span className="error-msg">
+                            {errors.company?.message}
+                          </span>
+                        )}
                       </fieldset>
                       <fieldset className="website">
                         <label htmlFor="website">Website</label>
                         <input
                           type="text"
                           id="website"
-                          name="website"
+                          {...register("website")}
                           placeholder="justbeetit.com"
                         />
+                        {errors.firstName && (
+                          <span className="error-msg">
+                            {errors.website?.message}
+                          </span>
+                        )}
                       </fieldset>
                     </div>
                     <fieldset>
@@ -187,9 +252,14 @@ const Cart = () => {
                       <input
                         type="email"
                         id="email"
-                        name="email"
+                        {...register("email")}
                         placeholder="jane@email.com"
                       />
+                      {errors.firstName && (
+                          <span className="error-msg">
+                            {errors.email?.message}
+                          </span>
+                        )}
                     </fieldset>
                     <fieldset>
                       <label htmlFor="what-is-your-annual-revenue">
@@ -208,17 +278,17 @@ const Cart = () => {
                       </select>
                     </fieldset>
                     <fieldset>
-                      <label htmlFor="tell-us-about-your-project">
+                      <label htmlFor="message">
                         Tell us about your project...
                       </label>
                       <textarea
-                        name="tell-us-about-your-project"
-                        id="tell-us-about-your-project"
+                        {...register("message")}
+                        id="message"
                         placeholder="What are you setting out to accomplish?"
                       ></textarea>
                     </fieldset>
                     <div className="submit-button">
-                      <CustomButton onClick={() => {}} text="I'm ready to talk">
+                      <CustomButton  type={"submit"} onClick={() => {}} text="I'm ready to talk">
                         <ArrowRight className="arrow-right" />
                       </CustomButton>
                     </div>
