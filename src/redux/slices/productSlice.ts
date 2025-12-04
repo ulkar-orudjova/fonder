@@ -12,10 +12,22 @@ export interface IProductState {
   totalPrice: number;
 }
 
+//localStorage
+
+const getInitialCart = (): IProduct[] => {
+  const savedCart = localStorage.getItem("shopCart");
+  return savedCart ? JSON.parse(savedCart) : [];
+};
+
+const initialCart = getInitialCart();
+
 const initialState: IProductState = {
-  cart: [],
-  cartCount: 0,
-  totalPrice: 0,
+  cart: initialCart,
+  cartCount: initialCart.reduce((acc, curr) => acc + (curr.quantity || 0), 0),
+  totalPrice: initialCart.reduce(
+    (acc, curr) => acc + curr.price * (curr.quantity || 0),
+    0
+  ),
 };
 
 export const productSlice = createSlice({
@@ -33,6 +45,7 @@ export const productSlice = createSlice({
         (acc, curr) => acc + curr.price * (curr.quantity || 0),
         0
       );
+      localStorage.setItem("shopCart", JSON.stringify(state.cart));
     },
     addToCart: (state, action: PayloadAction<IProduct>) => {
       const existing = state.cart.find(
