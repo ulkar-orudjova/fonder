@@ -16,7 +16,7 @@ const WorkWithUs = () => {
   const dispatch = useAppDispatch();
   const repeatedSlides = Array(10).fill(sliderData).flat();
   return (
-    <section className="work-with-us">
+    <section data-aos = "fade-up" className="work-with-us">
       <div className="container">
         <div  className="row">
           <span className="headline">Good things come in lean teams</span>
@@ -34,6 +34,7 @@ const WorkWithUs = () => {
         </div>
       </div>
       <Swiper
+      data-aos = "fade-up"
         slidesPerView={"auto"}
         spaceBetween={30}
         centeredSlides={true}

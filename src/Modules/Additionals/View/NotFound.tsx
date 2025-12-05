@@ -17,7 +17,7 @@ const NotFound = () => {
     navigate("/");
   }
   return (
-    <section className="not-found">
+    <section data-aos = "fade-up" className="not-found">
      
         <Swiper
           slidesPerView={"auto"}

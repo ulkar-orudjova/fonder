@@ -19,7 +19,6 @@ useEffect(()=>{
     disable: false, 
     startEvent: 'DOMContentLoaded',
     mirror: true, 
-
     duration: 1000,
     once: false,
   })
@@ -31,8 +30,8 @@ useEffect(()=>{
       <main>
         <ScrollToTop/>
          <FonderRouter/>
-         <CustomContact/>
       </main>
+       <CustomContact/>
       <Footer/>
     </Provider>
   

@@ -31,10 +31,13 @@
             gap: 30px;
             align-items: center;
             .nav-item {
-              a {
+              .nav-link {
                 color: $lightGray;
                 font-size: 19px;
                 &:hover {
+                  color: $white;
+                }
+                &.active{
                   color: $white;
                 }
               }

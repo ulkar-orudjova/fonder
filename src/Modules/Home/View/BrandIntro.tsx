@@ -6,7 +6,7 @@ import { setIsContactModalOpen } from "../../../redux/slices/modalSlice";
 const BrandIntro = () => {
   const dispatch = useAppDispatch();
   return (
-    <section className="brand-intro">
+    <section data-aos = "fade-up" className="brand-intro">
       <div className="container">
         <div className="row">
           <span className="headline">Welcome to Fonder</span>

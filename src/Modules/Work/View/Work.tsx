@@ -7,53 +7,37 @@ import { WorkCategory } from "../../../db/workDb";
 import { useEffect, useState } from "react";
 import { WorkService } from "../service/WorkService";
 
-
 const Work = () => {
-  // Bütün kateqoriyaları saxlamaq üçün state
-
   const [categories, setCategories] = useState<WorkCategory[]>([]);
-
-  // Kateqoriya modalının görünürlüyünü idarə edən state
   const [showModal, setShowModal] = useState(false);
-
-  // Cari seçilmiş kateqoriyanı saxlamaq üçün state (əvvəlcə null)
   const [selectedCategory, setSelectedCategory] = useState<WorkCategory | null>(null);
-
-  // Filterlənmiş işləri saxlamaq üçün state
   const [filteredWork, setFilteredWork] = useState<IWorkDb[]>(workDb);
 
-  // Kateqoriyaları yükləmək üçün useEffect
   useEffect(() => {
     const res = WorkService.getCategories();
     setCategories(res);
   }, []);
 
-  // Filterləmə məntiqi üçün useEffect (selectedCategory dəyişdikdə işləyir)
   useEffect(() => {
     if (selectedCategory) {
-      // Seçilmiş kateqoriya varsa, işləri filterlə
       const filtered = workDb.filter(
         (item) => item.category === selectedCategory
       );
       setFilteredWork(filtered);
     } else {
-      // Seçilmiş kateqoriya yoxdursa, bütün işləri göstər
       setFilteredWork(workDb);
     }
   }, [selectedCategory]);
 
-  // Modalın vəziyyətini dəyişən funksiya
   const toggleModal = () => {
     setShowModal((prev) => !prev);
   };
 
-  // Kateqoriya seçimi funksiyası
   const handleCategorySelect = (category: WorkCategory) => {
     setSelectedCategory(category);
     setShowModal(false); 
   };
 
-  // Seçilmiş kateqoriyanı (filteri) silən funksiya
   const handleCategoryRemove = () => {
     setSelectedCategory(null);
   };

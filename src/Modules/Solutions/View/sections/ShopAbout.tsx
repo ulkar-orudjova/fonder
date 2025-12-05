@@ -6,10 +6,10 @@ const ShopAbout = () => {
     <section className="shop-about">
       <div className="container">
         <div className="row">
-          <div className="left-side">
+          <div data-aos = "fade-right" className="left-side">
             <img src={aboutImg} alt="about-gif" />
           </div>
-          <div className="right-side">
+          <div data-aos = "fade-left" className="right-side">
             <h2 className="title">Not sure what you need?</h2>
             <div className="right-side-bottom">
               <div className="info">

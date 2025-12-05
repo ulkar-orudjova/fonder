@@ -12,10 +12,10 @@ const Successful = () => {
     <section className="success">
       <div className="container">
         <div className="row">
-          <div className="right-side">
+          <div data-aos = "fade-right" className="left-side">
             <img src={successImg} alt="success-img" />
           </div>
-          <div className="left-side">
+          <div data-aos = "fade-left" className="right-side">
             <h2 className="title">Contact Cart Received</h2>
             <div>
               <p className="text">

@@ -2,7 +2,7 @@ import Dashed from "../../../assets/images/icons/dashed.svg?react";
 
 const ProjectOutcome = () => {
   return (
-    <section className="project-outcome">
+    <section data-aos = "fade-up" className="project-outcome">
       <div className="container">
         <div className="row">
           <div className="outcome">

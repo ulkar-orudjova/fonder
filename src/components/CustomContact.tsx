@@ -14,10 +14,6 @@ const CustomContact = () => {
 
   console.log(state);
 
-  // if (!isModalOpen) {
-  //   return null;
-  // }
-
   return (
     <div className={`custom-contact ${state ? 'active' : ''}`}>
       <div className="fixed">

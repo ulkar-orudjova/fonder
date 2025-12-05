@@ -7,7 +7,7 @@ import { Autoplay } from "swiper/modules";
 
 const Outcomes = () => {
   return (
-    <section className="outcomes">
+    <section data-aos = "fade-up" className="outcomes">
       <div className="row">
         <Swiper
           slidesPerView={"auto"}

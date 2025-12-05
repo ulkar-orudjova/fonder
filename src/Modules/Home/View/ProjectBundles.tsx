@@ -13,7 +13,7 @@ const ProjectBundles = () => {
     navigate("/shop");
   };
   return (
-    <section className="project-bundles">
+    <section data-aos = "fade-up" className="project-bundles">
       <div className="container">
         <div className="row">
           <div className="project-bundles-top row">

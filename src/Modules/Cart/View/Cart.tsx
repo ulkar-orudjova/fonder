@@ -17,7 +17,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import type { ICheckoutFormData } from "../Models/CartModel";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { object, string } from "yup";
-import { EMAIL_REGEX, MIN_TWO_LETTERS_REGEX } from "../../../utils/helper";
+import { EMAIL_REGEX, MIN_FIVE_LETTERS_REGEX, MIN_TWO_LETTERS_REGEX, WEBSITE_REGEX } from "../../../utils/helper";
 
 const loginSchema = object({
   firstName: string()
@@ -35,9 +35,9 @@ const loginSchema = object({
       "It must consist of at least 2 symbols!"
     ),
   email: string().trim().required().matches(EMAIL_REGEX,"Please enter a valid email address"),
-  company: string().trim().required(),
-  website: string().trim().required(),
-  message: string().trim().required(),
+  company: string().trim().required().matches(MIN_FIVE_LETTERS_REGEX,"It must consist of at least 5 symbols!"),
+  website: string().trim().required().matches(WEBSITE_REGEX, "Please enter a valid website address"),
+  message: string().trim().required().matches(MIN_FIVE_LETTERS_REGEX,"It must consist of at least 5 symbols!"),
 });
 
 const Cart = () => {
@@ -204,7 +204,7 @@ const Cart = () => {
                           {...register("lastName")}
                           placeholder="Doe"
                         />
-                        {errors.firstName && (
+                        {errors.lastName && (
                           <span className="error-msg">
                             {errors.lastName?.message}
                           </span>
@@ -223,7 +223,7 @@ const Cart = () => {
                           {...register("company")}
                           placeholder="Schrute Farms"
                         />
-                        {errors.firstName && (
+                        {errors.company && (
                           <span className="error-msg">
                             {errors.company?.message}
                           </span>
@@ -237,7 +237,7 @@ const Cart = () => {
                           {...register("website")}
                           placeholder="justbeetit.com"
                         />
-                        {errors.firstName && (
+                        {errors.website && (
                           <span className="error-msg">
                             {errors.website?.message}
                           </span>
@@ -255,7 +255,7 @@ const Cart = () => {
                         {...register("email")}
                         placeholder="jane@email.com"
                       />
-                      {errors.firstName && (
+                      {errors.email && (
                           <span className="error-msg">
                             {errors.email?.message}
                           </span>
@@ -286,6 +286,11 @@ const Cart = () => {
                         id="message"
                         placeholder="What are you setting out to accomplish?"
                       ></textarea>
+                       {errors.message && (
+                          <span className="error-msg">
+                            {errors.message?.message}
+                          </span>
+                        )}
                     </fieldset>
                     <div className="submit-button">
                       <CustomButton  type={"submit"} onClick={() => {}} text="I'm ready to talk">

@@ -33,10 +33,10 @@ const Header = () => {
             <nav className="nav-bar">
               <ul className="nav-list">
                 <li className="nav-item">
-                  <NavLink to={"/shop"}>Solutions</NavLink>
+                  <NavLink to={"/shop"} className={({isActive}) => (isActive ? "active nav-link" : "nav-link")} end>Solutions</NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink to={"/work"}>Work</NavLink>
+                  <NavLink to={"/work"} className={({isActive}) => (isActive ? "active nav-link" : "nav-link")} >Work</NavLink>
                 </li>
               </ul>
             </nav>
