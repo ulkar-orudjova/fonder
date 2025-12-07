@@ -49,50 +49,60 @@
               }
             }
             form {
-              border: 1px solid $lightGray;
-              border-radius: 50px;
-              display: flex;
-              align-items: center;
-              padding: 5px;
-              .footer-input {
-                width: 100%;
-                border-style: none;
-                flex: 1;
-                background: none;
-                border: none;
-                //background-color: $black!important;
-                color: $pureWhite;
-                font-size: 15px;
-                padding: 10px 20px;
-                border-radius: 20px;
-
-                &::placeholder {
-                  color: $lightGray;
-                }
-
-                &:focus {
-                  outline: none;
-                }
-              }
-              .footer-btn {
-                background-color: $pureWhite;
-                border: none;
-                border-radius: 30px;
-                width: 66px;
-                height: 46px;
+              div {
+                border: 1px solid $lightGray;
+                border-radius: 50px;
                 display: flex;
                 align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                transition: 0.3s ease;
-                .arrow-right {
-                  width: 20px;
-                  height: 20px;
-                  color: $black;
+                padding: 5px;
+                margin-bottom: 7px;
+                .footer-input {
+                  width: 100%;
+                  border-style: none;
+                  flex: 1;
+                  background: none;
+                  border: none;
+                  //background-color: $black!important;
+                  color: $pureWhite;
+                  font-size: 15px;
+                  padding: 10px 20px;
+                  border-radius: 20px;
+
+                  &::placeholder {
+                    color: $lightGray;
+                  }
+
+                  &:focus {
+                    outline: none;
+                  }
                 }
-                &:hover {
-                  background-color: $lightGray;
+                .footer-btn {
+                  background-color: $pureWhite;
+                  border: none;
+                  border-radius: 30px;
+                  width: 66px;
+                  height: 46px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  cursor: pointer;
+                  transition: 0.3s ease;
+                  .arrow-right {
+                    width: 20px;
+                    height: 20px;
+                    color: $black;
+                  }
+                  &:hover {
+                    background-color: $lightGray;
+                  }
                 }
+
+              }
+              .error-msg{
+                color: $orange;
+                font-size: 14px;
+                margin-left: 12px;
+                
               }
             }
           }
@@ -356,4 +366,3 @@
     }
   }
 }
-

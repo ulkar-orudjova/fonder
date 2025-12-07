@@ -92,11 +92,21 @@
                 display: grid;
                 grid-template-columns: repeat(2, minmax(0, 1fr));
                 gap: 18px;
+                fieldset {
+                  .error-msg {
+                    color: $orange;
+                    font-size: 14px;
+                  }
+                }
               }
               fieldset {
                 textarea {
                   width: 100%;
                   min-height: 216px;
+                }
+                .error-msg {
+                  color: $orange;
+                  font-size: 14px;
                 }
               }
             }
@@ -420,7 +430,7 @@
                 a {
                   font-size: 15px;
                 }
-                .divider{
+                .divider {
                   display: none;
                 }
               }
@@ -447,7 +457,7 @@
 }
 
 @media (max-width: 768px) {
-   .custom-contact {
+  .custom-contact {
     .fixed {
       .contact {
         padding: 15px;
@@ -539,7 +549,7 @@
                 a {
                   font-size: 15px;
                 }
-                .divider{
+                .divider {
                   display: none;
                 }
               }
@@ -565,4 +575,5 @@
   }
 }
 
-@media (max-width: 480px) {}
+@media (max-width: 480px) {
+}

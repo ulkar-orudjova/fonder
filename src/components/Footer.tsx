@@ -1,13 +1,35 @@
 import { Link } from "react-router-dom";
 import ArrowRight from "../assets/images/icons/arrow-right.svg?react";
-import Dashed from "../assets/images/icons/dashed.svg?react"
+import Dashed from "../assets/images/icons/dashed.svg?react";
 import Logo from "../assets/images/icons/logo.svg?react";
 import CustomButton from "./CustomButton";
 import { useAppDispatch } from "../redux/hooks";
 import { setIsContactModalOpen } from "../redux/slices/modalSlice";
+import { useForm, type SubmitHandler } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { object, string } from "yup";
+import { EMAIL_REGEX } from "../utils/helper";
+
+interface IFormData {
+  email: string;
+}
+
+const contactSchema = object({
+  email: string().trim().required().matches(EMAIL_REGEX, "Please enter a valid email address"),
+})
 
 const Footer = () => {
   const dispatch = useAppDispatch();
+
+  const { register, handleSubmit, reset, formState:{errors} } = useForm<IFormData>({
+    resolver: yupResolver(contactSchema)
+  });
+
+  const onSubmit:SubmitHandler<IFormData> = (data) =>{
+    console.log(data);
+    reset();
+  };
+
   return (
     <footer className="footer">
       <div className="container">
@@ -17,12 +39,14 @@ const Footer = () => {
               Don't hope for growth. Design it.
             </h2>
             <div className="footer-btn">
-                 <CustomButton onClick={()=>dispatch(setIsContactModalOpen(true))} text = "Let's work 💬"/>
+              <CustomButton
+                onClick={() => dispatch(setIsContactModalOpen(true))}
+                text="Let's work 💬"
+              />
             </div>
-            
           </div>
           <div className="underline">
-            <Dashed className="dashed"/>
+            <Dashed className="dashed" />
           </div>
         </div>
         <div className="footer-bottom">
@@ -31,13 +55,21 @@ const Footer = () => {
               <div className="footer-subscribe ">
                 <p className="form-title">
                   <span>Join the community: </span>
-                   access offers, free programs, and consumer insights
+                  access offers, free programs, and consumer insights
                 </p>
-                <form className="form">
-                  <input type="email"name="email" className="footer-input" />
-                  <button className="footer-btn">
-                    <ArrowRight className="arrow-right"/>
-                  </button>
+
+                <form onSubmit={handleSubmit(onSubmit)} className="form">
+                  <div>
+                    <input
+                      type="email"
+                      {...register("email")}
+                      className="footer-input"
+                    />
+                    <button type="submit" className="footer-btn">
+                      <ArrowRight className="arrow-right" />
+                    </button>
+                  </div>
+                  {errors.email && (<span className="error-msg">{errors.email.message}</span>)}
                 </form>
               </div>
               <nav className="footer-navbar ">
@@ -48,7 +80,12 @@ const Footer = () => {
                   <Link to={"/work"}>Our Work</Link>
                 </div>
                 <div className="nav-link">
-                  <Link onClick={()=>dispatch(setIsContactModalOpen(true))}  to={""}>Contact</Link>
+                  <Link
+                    onClick={() => dispatch(setIsContactModalOpen(true))}
+                    to={""}
+                  >
+                    Contact
+                  </Link>
                 </div>
                 <ul className="nav-item">
                   <li className="item-list">
@@ -88,12 +125,14 @@ const Footer = () => {
                   <li className="item">Terms & Conditions</li>
                   <li className="item">Privacy Policy</li>
                 </ul>
-                <p className="title">©2025 Fonder Studio. All rights reserved.</p>
+                <p className="title">
+                  ©2025 Fonder Studio. All rights reserved.
+                </p>
               </div>
             </div>
           </div>
           <div className="underline">
-            <Dashed className="dashed"/>
+            <Dashed className="dashed" />
           </div>
         </div>
       </div>

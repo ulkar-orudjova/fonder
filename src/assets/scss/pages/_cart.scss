@@ -12,14 +12,14 @@
       align-items: center;
       justify-content: center;
       gap: 18px;
-      .empty-title{
+      .empty-title {
         font-size: 72px;
         font-weight: 700;
         font-family: stroy;
         letter-spacing: -3.6px;
         text-transform: uppercase;
       }
-      .empty-text{
+      .empty-text {
         font-size: 19px;
       }
     }
@@ -27,7 +27,7 @@
   .cart-right-bg-color {
     display: block;
     width: 50%;
-    background-color: #ecede4;
+    background-color: $lightColor;
     position: absolute;
     top: 0;
     right: 0;
@@ -48,7 +48,6 @@
         flex-direction: column;
         gap: 36px;
         max-width: 648px;
-        //padding-left: 54px;
         padding-right: 54px;
         .contact-cart-title {
           text-transform: uppercase;
@@ -161,7 +160,6 @@
                 .counter-btn {
                   border-color: $grey;
                   border-radius: 5px;
-                  // padding: 2px 6px;
                   width: 18px;
                   height: 18px;
                   color: $black;
@@ -238,9 +236,130 @@
                 width: 100%;
                 min-height: 216px;
               }
-              .error-msg{
+              .error-msg {
                 color: $orange;
                 font-size: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .cart-contact {
+    padding-top: 136px;
+    padding-bottom: 76px;
+    margin-bottom: -80px;
+    .empty {
+      padding-top: 30px;
+      padding-bottom: 120px;
+      .row {
+        gap: 15px;
+        .empty-title {
+          font-size: 60px;
+          letter-spacing: -3px;
+        }
+        .empty-text {
+          font-size: 17px;
+        }
+      }
+    }
+    .cart-right-bg-color {
+      display: none;
+    }
+    .container {
+      width: 100%;
+      .grid {
+        max-width: 1211px;
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 45px;
+        .contact-cart {
+          gap: 30px;
+          max-width: 635px;
+          padding-left: 30px;
+          padding-right: 30px;
+          .contact-cart-title {
+            font-size: 60px;
+            letter-spacing: -3px;
+          }
+          .contact-cart-bottom {
+            .total-price {
+              gap: 15px;
+              font-size: 19px;
+              letter-spacing: -0.9px;
+              line-height: 22px;
+              span {
+                font-family: stroy;
+              }
+            }
+          }
+        }
+        .contact-form {
+          background-color: $lightColor;
+          padding: 60px 30px;
+          .row {
+            gap: 23px;
+            .form {
+              gap: 23px;
+              .form-group {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 15px;
+              }
+              fieldset {
+                textarea {
+                  width: 100%;
+                  min-height: 181px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .cart-contact {
+    .empty {
+      width: 90%;
+      margin: 0 auto;
+      padding-top: 30px;
+      padding-bottom: 120px;
+      .row {
+        gap: 15px;
+        .empty-title {
+          font-size: 56px;
+          letter-spacing: -2.8px;
+        }
+        .empty-text {
+          font-size: 17px;
+        }
+      }
+    }
+    .container {
+      .grid {
+        .contact-cart {
+          gap: 30px;
+          max-width: 635px;
+          padding-left: 15px;
+          padding-right: 15px;
+          .contact-cart-title {
+            font-size: 58px;
+          }
+        }
+        .contact-form {
+          background-color: $lightColor;
+          padding: 50px 15px;
+          .row {
+            .form {
+              .form-group {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
               }
             }
           }

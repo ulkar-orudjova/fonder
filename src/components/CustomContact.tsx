@@ -7,12 +7,35 @@ import { setIsContactModalOpen } from "../redux/slices/modalSlice";
 import CustomButton from "./CustomButton";
 import { contactListDb } from "../db/sliderDb";
 import { Link } from "react-router-dom";
+import { useForm, type SubmitHandler } from "react-hook-form";
+import type { IContactFormData } from "../Modules/Contact/Models/ContactModel";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { object, string } from "yup";
+import { EMAIL_REGEX, MIN_FIVE_LETTERS_REGEX, NAME_REGEX } from "../utils/helper";
+
+const contactSchema = object({
+  name: string().trim().required().matches(NAME_REGEX,"It must consist of at least 2 symbols!"),
+  title: string().trim().required().matches(MIN_FIVE_LETTERS_REGEX,"It must consist of at least 5 symbols!"),
+  email: string().trim().required().matches(EMAIL_REGEX, "Please enter a valid email address"),
+  company_name: string().trim().required(),
+  message: string().trim().required(),
+
+})
 
 const CustomContact = () => {
   const state = useAppSelector((state) => state.modalSlice.isContactModalOpen);
   const dispatch = useAppDispatch();
 
-  console.log(state);
+  //form validation
+
+  const {register, handleSubmit, reset, formState:{errors}} = useForm<IContactFormData>({
+    resolver: yupResolver(contactSchema)
+  });
+
+  const onSubmit: SubmitHandler<IContactFormData> = async (data) =>{
+    console.log(data);
+    reset()
+  }
 
   return (
     <div className={`custom-contact ${state ? 'active' : ''}`}>
@@ -29,7 +52,7 @@ const CustomContact = () => {
                 <div className="underline">
                   <Dashed />
                 </div>
-                <form className="form">
+                <form onSubmit={handleSubmit(onSubmit)} className="form">
                   <div className="form-input">
                     <fieldset>
                       <label htmlFor="name">
@@ -37,21 +60,23 @@ const CustomContact = () => {
                       </label>
                       <input
                         type="text"
-                        name="name"
+                        {...register("name")}
                         id="name"
                         placeholder="Your Name"
                       />
+                      {errors.name && (<span className="error-msg">{errors.name.message}</span>)}
                     </fieldset>
                     <fieldset>
-                      <label htmlFor="job-title">
+                      <label htmlFor="title">
                         Job Title <span>*</span>
                       </label>
                       <input
                         type="text"
-                        name="job-title"
+                        {...register("title")}
                         id="job-title"
                         placeholder="Job Title"
                       />
+                      {errors.title && (<span className="error-msg">{errors.title.message}</span>)}
                     </fieldset>
                   </div>
                   <div className="form-input">
@@ -61,21 +86,23 @@ const CustomContact = () => {
                       </label>
                       <input
                         type="email"
-                        name="email"
+                         {...register("email")}
                         id="email"
                         placeholder="Email"
                       />
+                      {errors.email && (<span className="error-msg">{errors.email.message}</span>)}
                     </fieldset>
                     <fieldset>
-                      <label htmlFor="website-or-company-name">
-                        Website or Company Name <span>*</span>
+                      <label htmlFor="company_name">
+                        Company Name <span>*</span>
                       </label>
                       <input
                         type="text"
-                        name="website-or-company-name"
-                        id="website-or-company-name"
-                        placeholder="Website or Company Name"
+                         {...register("company_name")}
+                        id="company-name"
+                        placeholder="Company Name"
                       />
+                      {errors.company_name && (<span className="error-msg">{errors.company_name.message}</span>)}
                     </fieldset>
                   </div>
                   <fieldset>
@@ -84,13 +111,14 @@ const CustomContact = () => {
                     </label>
                     <textarea
                       className="form-textarea"
-                      name="message"
+                      {...register("message")}
                       id="message"
                       placeholder="Tell us about your project and goals."
                     ></textarea>
+                    {errors.message && (<span className="error-msg">{errors.message.message}</span>)}
                   </fieldset>
                   <div className="form-btn">
-                    <CustomButton onClick={() => {}} text="Submit">
+                    <CustomButton type={"submit"} onClick={() => {}} text="Submit">
                       <ArrowRight className="arrow-right" />
                     </CustomButton>
                   </div>
