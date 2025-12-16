@@ -158,11 +158,12 @@
                 font-size: 12px;
                 font-weight: 600;
                 .counter-btn {
-                  border-color: $grey;
-                  border-radius: 5px;
-                  width: 18px;
-                  height: 18px;
-                  color: $black;
+                  border-color: $black;
+                  background-color: $black;
+                  color: $white;
+                  border-radius: 9999px;
+                  width: 19px;
+                  height: 19px;
                   cursor: pointer;
                 }
               }

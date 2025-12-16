@@ -161,7 +161,7 @@
                 width: 388px;
                 max-width: 558px;
                 padding: 31px;
-                display: flex;
+                display: none;
                 gap: 9px;
                 border-radius: 8px;
                 .category-btn {
@@ -304,7 +304,7 @@
               }
               .all-category {
                 width: calc(100vw - 58px);
-                max-width: 526px;
+                max-width: 406px;
                 padding: 15px;
                 gap: 7px;
                 border-radius: 7px;
