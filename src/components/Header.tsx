@@ -10,6 +10,7 @@ import CustomButton from "./CustomButton";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { removeFromCart } from "../redux/slices/productSlice";
 import { setIsContactModalOpen } from "../redux/slices/modalSlice";
+import CustomModal from "./CustomModal";
 
 const Header = () => {
   const cart = useAppSelector((state) => state.productSlice.cart);
@@ -18,6 +19,15 @@ const Header = () => {
   const dispatch = useAppDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const [cartIsOpen, setCartIsOpen] = useState(false);
+
+  //silmek modali ucun
+  const [productToDelete, setProductToDelete] = useState<string | null>(null);
+  const handleConfirmDelete = () => {
+    if (productToDelete) {
+      dispatch(removeFromCart(productToDelete));
+      setProductToDelete(null);
+    }
+  };
   console.log(cartCount);
 
   return (
@@ -118,9 +128,7 @@ const Header = () => {
                         </div>
                         <button
                           className="delete"
-                          onClick={() => {
-                            dispatch(removeFromCart(item._id));
-                          }}
+                        onClick={() => setProductToDelete(item._id)}
                         >
                           <Delete className="remove-svg" />
                         </button>
@@ -248,6 +256,13 @@ const Header = () => {
           </div>
         )}
       </div>
+       <CustomModal
+        isOpen={!!productToDelete} // productToDelete null deyilsə true olur
+        onClose={() => setProductToDelete(null)}
+        onConfirm={handleConfirmDelete}
+        title="Delete product"
+        message="Are you sure you want to delete the product?"
+      />
     </header>
   );
 };

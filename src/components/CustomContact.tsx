@@ -12,6 +12,8 @@ import type { IContactFormData } from "../Modules/Contact/Models/ContactModel";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { object, string } from "yup";
 import { EMAIL_REGEX, MIN_FIVE_LETTERS_REGEX, NAME_REGEX } from "../utils/helper";
+import { sendContactEmail } from "../Modules/Contact/Service/ContactService";
+import showNotification from "../utils/showNotification";
 
 const contactSchema = object({
   name: string().trim().required().matches(NAME_REGEX,"It must consist of at least 2 symbols!"),
@@ -33,8 +35,13 @@ const CustomContact = () => {
   });
 
   const onSubmit: SubmitHandler<IContactFormData> = async (data) =>{
-    console.log(data);
-    reset()
+    try {
+      await sendContactEmail(data);
+      showNotification("success", "Message Send");
+      reset();
+    } catch (error: any) {
+      showNotification("error", error?.response?.data);
+    }
   }
 
   return (

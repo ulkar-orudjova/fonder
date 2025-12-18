@@ -18,6 +18,8 @@ import type { ICheckoutFormData } from "../Models/CartModel";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { object, string } from "yup";
 import { EMAIL_REGEX, MIN_FIVE_LETTERS_REGEX, MIN_TWO_LETTERS_REGEX, WEBSITE_REGEX } from "../../../utils/helper";
+import CustomModal from "../../../components/CustomModal";
+import { useState } from "react";
 
 const loginSchema = object({
   firstName: string()
@@ -48,6 +50,15 @@ const Cart = () => {
   const handleProductCount = (productParams: IProductParams) => {
     dispatch(setProductCount(productParams));
   };
+
+    //silmek modali ucun
+    const [productToDelete, setProductToDelete] = useState<string | null>(null);
+    const handleConfirmDelete = () => {
+      if (productToDelete) {
+        dispatch(removeFromCart(productToDelete));
+        setProductToDelete(null);
+      }
+    };
 
   // form validation hissesi
   const {
@@ -120,7 +131,7 @@ const Cart = () => {
                           </div>
                           <button
                             className="delete"
-                            onClick={() => dispatch(removeFromCart(item._id))}
+                           onClick={() => setProductToDelete(item._id)}
                           >
                             <Delete className="remove-svg" />
                           </button>
@@ -304,6 +315,13 @@ const Cart = () => {
           </div>
         </>
       )}
+        <CustomModal
+        isOpen={!!productToDelete} // productToDelete null deyilsə true olur
+        onClose={() => setProductToDelete(null)}
+        onConfirm={handleConfirmDelete}
+        title="Delete product"
+        message="Are you sure you want to delete the product?"
+      />
     </section>
   );
 };
