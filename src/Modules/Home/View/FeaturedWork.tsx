@@ -2,7 +2,7 @@ import Dashed from "../../../assets/images/icons/dashed.svg?react";
 import ArrowRight from "../../../assets/images/icons/arrow-right.svg?react";
 import CustomButton from "../../../components/CustomButton";
 import Plyo from "../../../assets/images/plyo-img.webp";
-import Escapely from "../../../assets/images/Escapely.img.webp";
+import Escapely from "../../../assets/images/escapely.img.webp";
 import MereCatch from "../../../assets/images/mere-catch.webp";
 import GoldBug from "../../../assets/images/gold-bug.webp";
 import { Link } from "react-router-dom";

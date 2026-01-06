@@ -12,8 +12,6 @@ export interface IProductState {
   totalPrice: number;
 }
 
-//localStorage
-
 const getInitialCart = (): IProduct[] => {
   const savedCart = localStorage.getItem("shopCart");
   return savedCart ? JSON.parse(savedCart) : [];

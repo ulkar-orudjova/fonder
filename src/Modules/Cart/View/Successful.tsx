@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 const Successful = () => {
   const navigate = useNavigate();
-
   const goToHome = () => {
     navigate("/");
   };

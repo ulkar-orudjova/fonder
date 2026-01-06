@@ -17,7 +17,13 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import type { ICheckoutFormData } from "../Models/CartModel";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { object, string } from "yup";
-import { EMAIL_REGEX, MIN_FIVE_LETTERS_REGEX, MIN_TWO_LETTERS_REGEX, WEBSITE_REGEX } from "../../../utils/helper";
+import {
+  EMAIL_REGEX,
+  MIN_FIVE_LETTERS_REGEX,
+  MIN_TWO_LETTERS_REGEX,
+  NAME_REGEX,
+  WEBSITE_REGEX,
+} from "../../../utils/helper";
 import CustomModal from "../../../components/CustomModal";
 import { useState } from "react";
 
@@ -25,21 +31,27 @@ const loginSchema = object({
   firstName: string()
     .trim()
     .required()
-    .matches(
-      MIN_TWO_LETTERS_REGEX,
-      "It must consist of at least 2 symbols!"
-    ),
+    .matches(MIN_TWO_LETTERS_REGEX, "It must consist of at least 2 symbols!"),
   lastName: string()
     .trim()
     .required()
-    .matches(
-      MIN_TWO_LETTERS_REGEX,
-      "It must consist of at least 2 symbols!"
-    ),
-  email: string().trim().required().matches(EMAIL_REGEX,"Please enter a valid email address"),
-  company: string().trim().required().matches(MIN_FIVE_LETTERS_REGEX,"It must consist of at least 5 symbols!"),
-  website: string().trim().required().matches(WEBSITE_REGEX, "Please enter a valid website address"),
-  message: string().trim().required().matches(MIN_FIVE_LETTERS_REGEX,"It must consist of at least 5 symbols!"),
+    .matches(MIN_TWO_LETTERS_REGEX, "It must consist of at least 2 symbols!"),
+  email: string()
+    .trim()
+    .required()
+    .matches(EMAIL_REGEX, "Please enter a valid email address"),
+  company: string()
+    .trim()
+    .required()
+    .matches(MIN_FIVE_LETTERS_REGEX, "It must consist of at least 5 symbols!"),
+  website: string()
+    .trim()
+    .required()
+    .matches(WEBSITE_REGEX, "Please enter a valid website address"),
+  message: string()
+    .trim()
+    .required()
+    .matches(NAME_REGEX, "It must consist of at least 5 symbols!"),
 });
 
 const Cart = () => {
@@ -51,14 +63,14 @@ const Cart = () => {
     dispatch(setProductCount(productParams));
   };
 
-    //silmek modali ucun
-    const [productToDelete, setProductToDelete] = useState<string | null>(null);
-    const handleConfirmDelete = () => {
-      if (productToDelete) {
-        dispatch(removeFromCart(productToDelete));
-        setProductToDelete(null);
-      }
-    };
+  //silmek modali ucun
+  const [productToDelete, setProductToDelete] = useState<string | null>(null);
+  const handleConfirmDelete = () => {
+    if (productToDelete) {
+      dispatch(removeFromCart(productToDelete));
+      setProductToDelete(null);
+    }
+  };
 
   // form validation hissesi
   const {
@@ -71,7 +83,6 @@ const Cart = () => {
   });
 
   const onSubmit: SubmitHandler<ICheckoutFormData> = (data) => {
-
     console.log(data);
     dispatch(clearCart());
     reset();
@@ -131,7 +142,7 @@ const Cart = () => {
                           </div>
                           <button
                             className="delete"
-                           onClick={() => setProductToDelete(item._id)}
+                            onClick={() => setProductToDelete(item._id)}
                           >
                             <Delete className="remove-svg" />
                           </button>
@@ -267,10 +278,10 @@ const Cart = () => {
                         placeholder="jane@email.com"
                       />
                       {errors.email && (
-                          <span className="error-msg">
-                            {errors.email?.message}
-                          </span>
-                        )}
+                        <span className="error-msg">
+                          {errors.email?.message}
+                        </span>
+                      )}
                     </fieldset>
                     <fieldset>
                       <label htmlFor="what-is-your-annual-revenue">
@@ -297,14 +308,18 @@ const Cart = () => {
                         id="message"
                         placeholder="What are you setting out to accomplish?"
                       ></textarea>
-                       {errors.message && (
-                          <span className="error-msg">
-                            {errors.message?.message}
-                          </span>
-                        )}
+                      {errors.message && (
+                        <span className="error-msg">
+                          {errors.message?.message}
+                        </span>
+                      )}
                     </fieldset>
                     <div className="submit-button">
-                      <CustomButton  type={"submit"} onClick={() => {}} text="I'm ready to talk">
+                      <CustomButton
+                        type={"submit"}
+                        onClick={() => {}}
+                        text="I'm ready to talk"
+                      >
                         <ArrowRight className="arrow-right" />
                       </CustomButton>
                     </div>
@@ -315,8 +330,8 @@ const Cart = () => {
           </div>
         </>
       )}
-        <CustomModal
-        isOpen={!!productToDelete} // productToDelete null deyilsə true olur
+      <CustomModal
+        isOpen={!!productToDelete}
         onClose={() => setProductToDelete(null)}
         onConfirm={handleConfirmDelete}
         title="Delete product"
