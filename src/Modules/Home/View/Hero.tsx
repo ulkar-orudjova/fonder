@@ -113,7 +113,7 @@ const Hero = () => {
           ))}
       </Swiper>
       <video
-        src="/public/video.mp4"
+        src="video.mp4"
         autoPlay
         loop
         muted
